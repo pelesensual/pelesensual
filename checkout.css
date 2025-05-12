@@ -1,0 +1,241 @@
+/* Estilos básicos para a página de checkout */
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+.checkout-page h1 {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.checkout-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+.checkout-form {
+    flex: 1 1 60%;
+    min-width: 300px;
+    padding-right: 20px;
+    border-right: 1px solid #eee;
+}
+
+.checkout-summary {
+    flex: 1 1 35%;
+    min-width: 280px;
+    padding-left: 20px;
+}
+
+.checkout-form h2, .checkout-summary h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 10px;
+    font-weight: 600;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1rem;
+}
+
+.form-group-half {
+    display: flex;
+    gap: 20px;
+}
+
+.form-group-half > div {
+    flex: 1;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #ff7f50; /* Coral - cor primária do tema */
+    color: white;
+    padding: 12px 25px;
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #ff6347; /* Tomate - um pouco mais escuro */
+}
+
+.summary-items p {
+    margin: 0 0 10px 0;
+    color: #777;
+}
+
+.summary-totals {
+    margin-top: 20px;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+}
+
+.summary-line {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+}
+
+.summary-total {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding-top: 15px;
+    border-top: 2px solid #333;
+}
+
+.checkout-actions {
+    margin-top: 30px;
+}
+
+.payment-options {
+    margin-bottom: 20px;
+}
+
+.payment-option {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.payment-option input[type="radio"] {
+    margin-right: 10px;
+}
+
+.payment-option label {
+    font-weight: 500;
+}
+
+.payment-option label i {
+    margin-right: 8px;
+    color: #ff7f50;
+}
+
+.payment-details {
+    display: none; /* Escondido por padrão, ativado via JS */
+    padding: 15px;
+    border: 1px solid #f0f0f0;
+    border-radius: 4px;
+    margin-top: 10px;
+    background-color: #fdfdfd;
+}
+
+.payment-details.active {
+    display: block;
+}
+
+#pagbank-pix-info-container img {
+    display: block;
+    margin: 15px auto;
+    max-width: 200px;
+    height: auto;
+    border: 1px solid #ccc;
+}
+
+.input-group {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.input-group input {
+    flex-grow: 1;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.input-group-append button {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-left: 0;
+    background-color: #eee;
+    color: #333;
+}
+
+.input-group-append button:hover {
+    background-color: #ddd;
+}
+
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.alert-danger {
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .checkout-container {
+        flex-direction: column;
+    }
+    .checkout-form {
+        padding-right: 0;
+        border-right: none;
+        margin-bottom: 30px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid #eee;
+    }
+    .checkout-summary {
+        padding-left: 0;
+    }
+    .form-group-half {
+        flex-direction: column;
+        gap: 0; /* Remove o gap para empilhar */
+    }
+    .form-group-half > div {
+        margin-bottom: 20px; /* Adiciona margem entre os campos empilhados */
+    }
+    .form-group-half > div:last-child {
+        margin-bottom: 0;
+    }
+}
+
