@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../images/logos/PS-Logo_05.png" type="image/png">
+    <title>Embalagens - Pele Sensual Moda Íntima</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/header-decoration.css">
+    <link rel="stylesheet" href="../css/tabs.css">
+    <link rel="stylesheet" href="../css/mode-toggle.css">
+</head>
+<body>
+    <!-- Botão de Alternância Varejo/Atacado -->
+    <div class="mode-toggle-container">
+        <div class="mode-toggle">
+            <button id="retail-mode" class="active">Varejo</button>
+            <button id="wholesale-mode">Atacado</button>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header-decoration">
+        <div class="header-pattern"></div>
+        <div class="container">
+            <div class="header-icons">
+                <div class="header-icon">
+                    <i class="fas fa-heart"></i>
+                    <span>Qualidade Premium</span>
+                </div>
+                <div class="header-icon">
+                    <i class="fas fa-truck"></i>
+                    <span>Entrega Rápida</span>
+                </div>
+                <div class="header-icon">
+                    <i class="fas fa-tag"></i>
+                    <span>Melhores Preços</span>
+                </div>
+                <div class="header-icon">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Compra Segura</span>
+                </div>
+            </div>
+            <div class="header-content">
+                <div class="logo">
+                    <img src="../images/logos/PS-Logo_01.png" alt="Pele Sensual Moda Íntima" class="main-logo">
+                </div>
+                <div class="slogan">Conforto, leveza e qualidade</div>
+                <nav>
+                    <ul>
+                        <li><a href="../index.html">Início</a></li>
+                        <li><a href="../index.html#produtos-adulto">Adulto</a></li>
+                        <li><a href="../index.html#produtos-infantil">Infantil</a></li>
+                        <li><a href="../index.html#sobre">Sobre Nós</a></li>
+                        <li><a href="../index.html#contato">Contato</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Produto Detalhe -->
+    <section class="product-detail">
+        <div class="container">
+            <div class="product-container">
+                <div class="product-images">
+                    <img src="../images/embalagens/caixa_embalagem_principal.png" alt="Caixas e Embalagens" class="product-main-image">
+                    <div class="product-thumbnails">
+                        <img src="../images/embalagens/caixa_embalagem_principal.png" alt="Caixas e Embalagens" class="product-thumbnail active" data-image="../images/embalagens/caixa_embalagem_principal.png">
+                        <img src="../images/embalagens/caixa_embalagem_2.png" alt="Caixas e Embalagens" class="product-thumbnail" data-image="../images/embalagens/caixa_embalagem_2.png">
+                        <img src="../images/embalagens/caixa_embalagem_3.png" alt="Caixas e Embalagens" class="product-thumbnail" data-image="../images/embalagens/caixa_embalagem_3.png">
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h1>Caixas e Embalagens</h1>
+                    <p class="description">Embalagens exclusivas para suas peças Pele Sensual. Opções de caixas de presente e embalagens transparentes para organizar e presentear com estilo.</p>
+                    
+                    <div class="product-tabs">
+                        <div class="tab-buttons">
+                            <div class="tab-button active" data-tab="caixa">Caixa de Presente</div>
+                            <div class="tab-button" data-tab="embalagem">Embalagem Transparente</div>
+                        </div>
+                        
+                        <div id="caixa" class="tab-content active">
+                            <h2>Caixa de Presente</h2>
+                            <p class="material">Material: Papelão Premium com Acabamento Fosco</p>
+                            <p class="description">Caixa de presente exclusiva da Pele Sensual, ideal para presentear com elegância. Design moderno em tom coral com o logo da marca.</p>
+                            <p class="price" data-price="7.00">R$ 7,00</p>
+                            
+                            <div class="packaging-features">
+                                <h3>Características</h3>
+                                <ul>
+                                    <li>Design exclusivo com a identidade da marca</li>
+                                    <li>Acabamento premium em tom coral</li>
+                                    <li>Capacidade para até 5 peças</li>
+                                    <li>Ideal para presentes e datas especiais</li>
+                                    <li>Montagem fácil e prática</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="packaging-info">
+                                <div class="packaging-info-item">
+                                    <h4>Dimensões</h4>
+                                    <p>19cm x 14cm x 5cm</p>
+                                </div>
+                                <div class="packaging-info-item">
+                                    <h4>Conteúdo</h4>
+                                    <p>1 caixa de presente</p>
+                                    <p>1 papel de seda</p>
+                                    <p>1 adesivo de fechamento</p>
+                                </div>
+                            </div>
+                            
+                            <div class="quantity-selector">
+                                <h3>Quantidade</h3>
+                                <div class="quantity-control">
+                                    <button>-</button>
+                                    <input type="number" value="1" min="1" max="99" id="caixa-quantity">
+                                    <button>+</button>
+                                </div>
+                            </div>
+                            
+                            <div class="product-actions">
+                                <button class="btn add-to-cart" data-id="caixa" data-price="7.00" data-name="Caixa de Presente">Adicionar ao Carrinho</button>
+                                <button class="btn btn-secondary">Comprar Agora</button>
+                            </div>
+                        </div>
+                        
+                        <div id="embalagem" class="tab-content">
+                            <h2>Embalagem Transparente</h2>
+                            <p class="material">Material: Plástico Transparente de Alta Qualidade</p>
+                            <p class="description">Embalagem transparente com logo da Pele Sensual, perfeita para organizar suas peças e facilitar a visualização. Ideal para revenda e armazenamento.</p>
+                            <p class="price" data-price="5.00">R$ 5,00</p>
+                            
+                            <div class="packaging-features">
+                                <h3>Características</h3>
+                                <ul>
+                                    <li>Transparência total para visualização das peças</li>
+                                    <li>Logo da marca impresso em rosa</li>
+                                    <li>Capacidade para até 6 peças</li>
+                                    <li>Fechamento seguro</li>
+                                    <li>Material resistente e durável</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="packaging-info">
+                                <div class="packaging-info-item">
+                                    <h4>Dimensões</h4>
+                                    <p>25cm x 15cm</p>
+                                </div>
+                                <div class="packaging-info-item">
+                                    <h4>Conteúdo</h4>
+                                    <p>1 embalagem transparente com logo</p>
+                                </div>
+                            </div>
+                            
+                            <div class="quantity-selector">
+                                <h3>Quantidade</h3>
+                                <div class="quantity-control">
+                                    <button>-</button>
+                                    <input type="number" value="1" min="1" max="99" id="embalagem-quantity">
+                                    <button>+</button>
+                                </div>
+                            </div>
+                            
+                            <div class="product-actions">
+                                <button class="btn add-to-cart" data-id="embalagem" data-price="5.00" data-name="Embalagem Transparente">Adicionar ao Carrinho</button>
+                                <button class="btn btn-secondary">Comprar Agora</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Produtos Relacionados -->
+    <section class="products">
+        <div class="container">
+            <h2>Produtos Relacionados</h2>
+            <div class="product-grid">
+                <!-- Calça Microfibra -->
+                <div class="product-card">
+                    <img src="../images/calca_microfibra_frente_1.png" alt="Calça Microfibra">
+                    <div class="content">
+                        <h3>Calça Microfibra</h3>
+                        <p class="material">Tecido: Microfibra</p>
+                        <p class="sizes">Tamanhos: P, M, G, GG</p>
+                        <p class="price" data-price="4.70">R$ 4,70</p>
+                        <p class="ref">REF: 016</p>
+                        <div class="actions">
+                            <a href="#" class="btn btn-sm add-to-cart" data-id="016">Adicionar ao Carrinho</a>
+                            <a href="produto.html?id=016" class="btn btn-sm">Ver Detalhes</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Pala Cotton -->
+                <div class="product-card">
+                    <img src="../images/pala_cotton_frente_1.png" alt="Pala Cotton">
+                    <div class="content">
+                        <h3>Pala Cotton</h3>
+                        <p class="material">Tecido: Cotton (algodão) Amaciado - Fio 40</p>
+                        <p class="sizes">Tamanhos: P, M, G, GG</p>
+                        <p class="price" data-price="6.50">R$ 6,50</p>
+                        <p class="ref">REF: 013</p>
+                        <div class="actions">
+                            <a href="#" class="btn btn-sm add-to-cart" data-id="013">Adicionar ao Carrinho</a>
+                            <a href="produto.html?id=013" class="btn btn-sm">Ver Detalhes</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Box Feminina -->
+                <div class="product-card">
+                    <img src="../images/box_feminina/box_feminina_frente_1.png" alt="Box Feminina">
+                    <div class="content">
+                        <h3>Box Feminina</h3>
+                        <p class="material">Tecido: Microfibra</p>
+                        <p class="sizes">Tamanhos: P, M, G, GG</p>
+                        <p class="price" data-price="7.00">R$ 7,00</p>
+                        <p class="ref">REF: 026 * Cores Sortidas</p>
+                        <div class="actions">
+                            <a href="#" class="btn btn-sm add-to-cart" data-id="026">Adicionar ao Carrinho</a>
+                            <a href="produto.html?id=026" class="btn btn-sm">Ver Detalhes</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Carrinho -->
+    <div class="cart">
+        <div class="cart-header">
+            <h3>Seu Carrinho</h3>
+            <button class="cart-close">&times;</button>
+        </div>
+        <div class="cart-items">
+            <!-- Itens do carrinho serão adicionados dinamicamente via JavaScript -->
+        </div>
+        <div class="cart-total">
+            <span>Total:</span>
+            <span class="cart-total-value">R$ 0,00</span>
+        </div>
+        <div class="cart-buttons">
+            <button class="btn checkout-button">Finalizar Compra</button>
+            <button class="btn btn-secondary continue-shopping">Continuar Comprando</button>
+        </div>
+    </div>
+
+    <!-- Botão do Carrinho -->
+    <div class="cart-button">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-count">0</span>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Pele Sensual</h3>
+                    <p>Moda íntima com conforto, leveza e qualidade.</p>
+                    <p><i class="fas fa-phone"></i> (85) 99943-6548</p>
+                    <p><i class="fas fa-envelope"></i> pelesensualmodaintima@gmail.com</p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/pelesensual?igsh=bXU3a2Z6NmVwbzhz" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/5585999436548" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Categorias</h3>
+                    <ul>
+                        <li><a href="../index.html#produtos-adulto">Moda Íntima Adulto</a></li>
+                        <li><a href="../index.html#produtos-infantil">Moda Íntima Infantil</a></li>
+                        <li><a href="../index.html#embalagens">Embalagens e Kits</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Informações</h3>
+                    <ul>
+                        <li><a href="../index.html#sobre">Sobre Nós</a></li>
+                        <li><a href="../index.html#contato">Contato</a></li>
+                        <li><a href="#">Política de Privacidade</a></li>
+                        <li><a href="#">Termos e Condições</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2025 Pele Sensual Moda Íntima. Todos os direitos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Funcionalidade das abas
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const tabId = button.getAttribute('data-tab');
+                    
+                    // Remover classe active de todos os botões e conteúdos
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    tabContents.forEach(content => content.classList.remove('active'));
+                    
+                    // Adicionar classe active ao botão e conteúdo clicado
+                    button.classList.add('active');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+            
+            // Funcionalidade das miniaturas
+            const thumbnails = document.querySelectorAll('.product-thumbnail');
+            const mainImage = document.querySelector('.product-main-image');
+            
+            thumbnails.forEach(thumbnail => {
+                thumbnail.addEventListener('click', () => {
+                    // Remover classe active de todas as miniaturas
+                    thumbnails.forEach(thumb => thumb.classList.remove('active'));
+                    
+                    // Adicionar classe active à miniatura clicada
+                    thumbnail.classList.add('active');
+                    
+                    // Atualizar imagem principal
+                    const imageUrl = thumbnail.getAttribute('data-image');
+                    mainImage.src = imageUrl;
+                });
+            });
+            
+            // Funcionalidade de quantidade
+            const quantityControls = document.querySelectorAll('.quantity-control');
+            
+            quantityControls.forEach(control => {
+                const decreaseBtn = control.querySelector('button:first-child');
+                const increaseBtn = control.querySelector('button:last-child');
+                const input = control.querySelector('input');
+                
+                decreaseBtn.addEventListener('click', () => {
+                    let value = parseInt(input.value);
+                    if (value > 1) {
+                        input.value = value - 1;
+                    }
+                });
+                
+                increaseBtn.addEventListener('click', () => {
+                    let value = parseInt(input.value);
+                    if (value < 99) {
+                        input.value = value + 1;
+                    }
+                });
+            });
+            
+            // Funcionalidade de adicionar ao carrinho
+            const addToCartButtons = document.querySelectorAll('.add-to-cart');
+            
+            addToCartButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const productId = button.getAttribute('data-id');
+                    const productName = button.getAttribute('data-name');
+                    const productPrice = parseFloat(button.getAttribute('data-price'));
+                    let quantity = 1;
+                    
+                    // Se for da página de embalagens, pegar a quantidade do input correspondente
+                    if (productId === 'caixa') {
+                        quantity = parseInt(document.getElementById('caixa-quantity').value);
+                    } else if (productId === 'embalagem') {
+                        quantity = parseInt(document.getElementById('embalagem-quantity').value);
+                    }
+                    
+                    // Adicionar ao carrinho (usando a função do main.js)
+                    if (window.addToCart) {
+                        window.addToCart(productId, productName, productPrice, quantity);
+                    } else {
+                        // Fallback se a função não estiver disponível
+                        alert(`${quantity}x ${productName} adicionado ao carrinho!`);
+                    }
+                });
+            });
+        });
+    </script>
+    <script src="../js/mode-toggle.js"></script>
+    <script src="../js/whatsapp-button.js"></script>
+    <script src="../js/pagseguro-integration.js"></script>
+</body>
+</html>

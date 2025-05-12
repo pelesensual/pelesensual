@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="images/logos/PS-Logo_05.png" type="image/png">
+    <title>Checkout - Pele Sensual Moda Íntima</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/header-decoration.css">
+    <link rel="stylesheet" href="css/mode-toggle.css">
+    <link rel="stylesheet" href="css/whatsapp-button.css">
+    <link rel="stylesheet" href="css/checkout.css">
+</head>
+<body>
+    <!-- Botão de Alternância Varejo/Atacado -->
+    <div class="mode-toggle-container">
+        <div class="mode-toggle">
+            <button id="retail-mode" class="active">Varejo</button>
+            <button id="wholesale-mode">Atacado</button>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header-decoration">
+        <div class="header-pattern"></div>
+        <div class="container">
+            <div class="header-icons">
+                <div class="header-icon">
+                    <i class="fas fa-heart"></i>
+                    <span>Qualidade Premium</span>
+                </div>
+                <div class="header-icon">
+                    <i class="fas fa-truck"></i>
+                    <span>Entrega Rápida</span>
+                </div>
+                <div class="header-icon">
+                    <i class="fas fa-tag"></i>
+                    <span>Melhores Preços</span>
+                </div>
+                <div class="header-icon">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Compra Segura</span>
+                </div>
+            </div>
+            <div class="header-content">
+                <div class="logo">
+                    <img src="images/logos/PS-Logo_01.png" alt="Pele Sensual Moda Íntima" class="main-logo">
+                </div>
+                <div class="slogan">Conforto, leveza e qualidade</div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="index.html#produtos-adulto">Adulto</a></li>
+                        <li><a href="index.html#produtos-infantil">Infantil</a></li>
+                        <li><a href="index.html#sobre">Sobre Nós</a></li>
+                        <li><a href="index.html#contato">Contato</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Página de Checkout -->
+    <main class="checkout-page">
+        <h1>Finalizar Compra</h1>
+        <div class="checkout-container">
+            <section class="checkout-form">
+                <h2>Informações do Cliente e Entrega</h2>
+                <form id="checkout-form-fields"> 
+                    <div class="form-group">
+                        <label for="name">Nome Completo</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Telefone / WhatsApp (com DDD)</label>
+                        <input type="tel" id="phone" name="phone" placeholder="(xx) xxxxx-xxxx" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cpf">CPF</label>
+                        <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00" required>
+                    </div>
+                    
+                    <h3>Endereço de Entrega</h3>
+                    <div class="form-group">
+                        <label for="cep">CEP</label>
+                        <input type="text" id="cep" name="cep" placeholder="00000-000" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="street">Rua / Avenida</label>
+                        <input type="text" id="street" name="street" required>
+                    </div>
+                    <div class="form-group form-group-half">
+                        <div>
+                            <label for="number">Número</label>
+                            <input type="text" id="number" name="number" required>
+                        </div>
+                        <div>
+                            <label for="complement">Complemento</label>
+                            <input type="text" id="complement" name="complement">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="neighborhood">Bairro</label>
+                        <input type="text" id="neighborhood" name="neighborhood" required>
+                    </div>
+                    <div class="form-group form-group-half">
+                        <div>
+                            <label for="city">Cidade</label>
+                            <input type="text" id="city" name="city" required>
+                        </div>
+                        <div>
+                            <label for="state">Estado</label>
+                            <select id="state" name="state" required>
+                                <option value="">Selecione...</option>
+                                <option value="AC">Acre</option>
+                                <option value="AL">Alagoas</option>
+                                <option value="AP">Amapá</option>
+                                <option value="AM">Amazonas</option>
+                                <option value="BA">Bahia</option>
+                                <option value="CE">Ceará</option>
+                                <option value="DF">Distrito Federal</option>
+                                <option value="ES">Espírito Santo</option>
+                                <option value="GO">Goiás</option>
+                                <option value="MA">Maranhão</option>
+                                <option value="MT">Mato Grosso</option>
+                                <option value="MS">Mato Grosso do Sul</option>
+                                <option value="MG">Minas Gerais</option>
+                                <option value="PA">Pará</option>
+                                <option value="PB">Paraíba</option>
+                                <option value="PR">Paraná</option>
+                                <option value="PE">Pernambuco</option>
+                                <option value="PI">Piauí</option>
+                                <option value="RJ">Rio de Janeiro</option>
+                                <option value="RN">Rio Grande do Norte</option>
+                                <option value="RS">Rio Grande do Sul</option>
+                                <option value="RO">Rondônia</option>
+                                <option value="RR">Roraima</option>
+                                <option value="SC">Santa Catarina</option>
+                                <option value="SP">São Paulo</option>
+                                <option value="SE">Sergipe</option>
+                                <option value="TO">Tocantins</option>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+            </section>
+
+            <aside class="checkout-summary">
+                <h2>Resumo do Pedido</h2>
+                <div class="summary-items" id="summary-items">
+                    <p>Carregando itens...</p>
+                </div>
+                <div class="summary-totals">
+                    <div class="summary-line">
+                        <span>Subtotal</span>
+                        <span id="summary-subtotal">R$ 0,00</span>
+                    </div>
+                    <div class="summary-line">
+                        <span>Frete</span>
+                        <span id="summary-shipping">R$ 0,00</span>
+                    </div>
+                    <div class="summary-total">
+                        <span>Total</span>
+                        <span id="summary-total">R$ 0,00</span>
+                    </div>
+                </div>
+                <div class="checkout-actions" id="checkout-actions" style="display: none;"> 
+                    <h3>Escolha a Forma de Pagamento</h3>
+                    <div class="payment-options">
+                        <div class="payment-option">
+                            <input type="radio" id="pix-payment" name="payment-method" value="pix" checked>
+                            <label for="pix-payment">
+                                <i class="fa-brands fa-pix"></i> PIX (PagBank)
+                            </label>
+                        </div>
+                        <div class="payment-option">
+                            <input type="radio" id="card-payment" name="payment-method" value="card">
+                            <label for="card-payment">
+                                <i class="fas fa-credit-card"></i> Cartão de Crédito
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Detalhes do Pagamento PIX (PagBank Real) -->
+                    <div id="pix-payment-details" class="payment-details active">
+                        <p>Clique abaixo para gerar o QR Code PIX PagBank.</p>
+                        <button id="generate-pagbank-pix-real-button" class="btn" style="margin-bottom: 1rem; width:100%;">Gerar PIX PagBank</button>
+                        
+                        <div id="pagbank-pix-info-container" style="display: none; text-align: center;"> 
+                            <p><strong>Pague com PIX via PagBank</strong></p>
+                            <img id="pagbank-pix-qrcode-image" src="" alt="QR Code PIX PagBank" class="img-fluid mb-2" style="max-width: 250px; border: 1px solid #ccc;">
+                            <div class="form-group">
+                                <label for="pagbank-pix-copy-paste-code">PIX Copia e Cola:</label>
+                                <div class="input-group">
+                                    <input type="text" id="pagbank-pix-copy-paste-code" class="form-control" readonly>
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-secondary" type="button" id="copy-pagbank-pix-code-button">Copiar</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <p id="pagbank-pix-order-id" class="text-muted font-weight-bold"></p>
+                            <p id="pagbank-pix-expiration" class="text-muted"></p>
+                        </div>
+                        <div id="pagbank-payment-error-message" class="alert alert-danger mt-3" style="display: none;"></div>
+                        <hr>
+                        <p style="margin-top:1rem;">Após o pagamento, a confirmação será automática. Aguarde alguns instantes ou verifique seu email.</p>
+                        <!-- O link de WhatsApp para comprovante pode ser mantido como um fallback ou removido se a notificação automática for confiável -->
+                        <a href="https://wa.me/5585999436548?text=Ol%C3%A1%2C%20gostaria%20de%20confirmar%20o%20pagamento%20do%20meu%20pedido%20PIX%20PagBank." id="whatsapp-receipt-link-pix-pagbank" class="btn whatsapp-button" target="_blank" style="display: block; text-align: center; margin-top: 1rem;">
+                            <i class="fab fa-whatsapp"></i> Contato em caso de dúvidas
+                        </a>
+                    </div>
+
+                    <!-- Detalhes do Pagamento Cartão (PagSeguro) -->
+                    <div id="card-payment-details" class="payment-details">
+                        <p><strong>Pagamento com Cartão de Crédito via PagSeguro:</strong></p>
+                        <p>Você será redirecionado para o ambiente seguro do PagSeguro para finalizar seu pagamento.</p>
+                        <form id="pagseguro-form" method="post" action="">
+                            <button type="button" id="pagseguro-checkout-button" class="btn btn-success" style="width: 100%; margin-top:1rem;">Pagar com PagSeguro</button>
+                        </form>
+                        <div id="pagseguro-loading" style="text-align: center; margin-top: 10px; display: none;">Carregando PagSeguro...</div>
+                    </div>
+                </div>
+                 <div id="wholesale-min-order-checkout-message" style="color: red; margin-top: 15px; text-align: center; font-weight: bold; display: none;">
+                    <!-- Conteúdo será preenchido via JS -->
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Pele Sensual</h3>
+                    <p>Moda íntima com conforto, leveza e qualidade.</p>
+                    <p><i class="fas fa-phone"></i> (85) 99943-6548</p>
+                    <p><i class="fas fa-envelope"></i> pelesensualmodaintima@gmail.com</p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/pelesensual?igsh=bXU3a2Z6NmVwbzhz" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/5585999436548" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Categorias</h3>
+                    <ul>
+                        <li><a href="index.html#produtos-adulto">Moda Íntima Adulto</a></li>
+                        <li><a href="index.html#produtos-infantil">Moda Íntima Infantil</a></li>
+                        <li><a href="index.html#embalagens">Embalagens e Kits</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Informações</h3>
+                    <ul>
+                        <li><a href="index.html#sobre">Sobre Nós</a></li>
+                        <li><a href="index.html#contato">Contato</a></li>
+                        <li><a href="#">Política de Privacidade</a></li>
+                        <li><a href="#">Termos e Condições</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2025 Pele Sensual Moda Íntima. Todos os direitos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/mode-toggle.js"></script>
+    <script src="js/whatsapp-button.js"></script>
+    <script src="js/pagseguro-integration.js"></script> 
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const summaryItemsContainer = document.getElementById("summary-items");
+            const summarySubtotalElem = document.getElementById("summary-subtotal");
+            const summaryShippingElem = document.getElementById("summary-shipping");
+            const summaryTotalElem = document.getElementById("summary-total");
+            const checkoutActions = document.getElementById("checkout-actions");
+            const wholesaleMinOrderMsgCheckout = document.getElementById("wholesale-min-order-checkout-message");
+
+            const customerForm = document.getElementById("checkout-form-fields");
+            const cityInput = document.getElementById("city");
+            const stateInput = document.getElementById("state");
+
+            // Elementos do Pagamento PIX PagBank (Real)
+            const generatePagBankPixRealButton = document.getElementById("generate-pagbank-pix-real-button");
+            const pagbankPixInfoContainer = document.getElementById("pagbank-pix-info-container");
+            const pagbankPixQrCodeImage = document.getElementById("pagbank-pix-qrcode-image");
+            const pagbankPixCopiaCola = document.getElementById("pagbank-pix-copy-paste-code");
+            const copyPagBankPixCodeButton = document.getElementById("copy-pagbank-pix-code-button");
+            const pagbankPixOrderId = document.getElementById("pagbank-pix-order-id");
+            const pagbankPixExpiration = document.getElementById("pagbank-pix-expiration");
+            const pagbankPaymentErrorMessage = document.getElementById("pagbank-payment-error-message");
+
+            // Elementos de seleção de pagamento
+            const pixPaymentRadio = document.getElementById("pix-payment");
+            const cardPaymentRadio = document.getElementById("card-payment");
+            const pixPaymentDetails = document.getElementById("pix-payment-details");
+            const cardPaymentDetails = document.getElementById("card-payment-details");
+
+            function updateCheckoutSummary() {
+                const cart = JSON.parse(localStorage.getItem("cart")) || [];
+                const currentMode = localStorage.getItem("mode") || "varejo";
+                summaryItemsContainer.innerHTML = "";
+                let subtotal = 0;
+                let totalQuantity = 0;
+
+                if (cart.length === 0) {
+                    summaryItemsContainer.innerHTML = "<p>Seu carrinho está vazio.</p>";
+                    checkoutActions.style.display = "none";
+                    summarySubtotalElem.textContent = "R$ 0,00";
+                    summaryShippingElem.textContent = "R$ 0,00";
+                    summaryTotalElem.textContent = "R$ 0,00";
+                    return;
+                }
+
+                cart.forEach(item => {
+                    const itemElement = document.createElement("div");
+                    itemElement.classList.add("summary-item");
+                    itemElement.innerHTML = `
+                        <span>${item.name} (x${item.quantity})</span>
+                        <span>R$ ${(item.price * item.quantity).toFixed(2).replace(".", ",")}</span>
+                    `;
+                    summaryItemsContainer.appendChild(itemElement);
+                    subtotal += item.price * item.quantity;
+                    totalQuantity += item.quantity;
+                });
+
+                summarySubtotalElem.textContent = `R$ ${subtotal.toFixed(2).replace(".", ",")}`;
+                calculateShipping(subtotal, currentMode, cityInput.value, stateInput.value);
+                
+                // Validação de pedido mínimo para atacado no checkout
+                const minWholesaleOrder = 200;
+                const minWholesaleItemQuantity = 10;
+                let wholesaleError = false;
+
+                if (currentMode === "atacado") {
+                    let itemsBelowMinQuantity = [];
+                    cart.forEach(item => {
+                        if (item.quantity < minWholesaleItemQuantity) {
+                            itemsBelowMinQuantity.push(item.name);
+                        }
+                    });
+
+                    if (itemsBelowMinQuantity.length > 0) {
+                        wholesaleMinOrderMsgCheckout.innerHTML = `Os seguintes itens estão abaixo da quantidade mínima de ${minWholesaleItemQuantity} unidades para atacado: ${itemsBelowMinQuantity.join(", ")}.<br>Ajuste seu carrinho.`;
+                        wholesaleMinOrderMsgCheckout.style.display = "block";
+                        checkoutActions.style.display = "none";
+                        wholesaleError = true;
+                    } else if (totalQuantity < minWholesaleOrder) {
+                        wholesaleMinOrderMsgCheckout.textContent = `Pedido mínimo de ${minWholesaleOrder} peças para atacado. Faltam ${minWholesaleOrder - totalQuantity} peças. Ajuste seu carrinho.`;
+                        wholesaleMinOrderMsgCheckout.style.display = "block";
+                        checkoutActions.style.display = "none";
+                        wholesaleError = true;
+                    } else {
+                        wholesaleMinOrderMsgCheckout.style.display = "none";
+                    }
+                } else {
+                    wholesaleMinOrderMsgCheckout.style.display = "none";
+                }
+
+                if (!wholesaleError) {
+                    checkoutActions.style.display = "block";
+                } else {
+                    checkoutActions.style.display = "none"; 
+                }
+            }
+
+            function calculateShipping(subtotal, mode, city, state) {
+                let shippingCost = 0;
+                const cityNormalized = city.trim().toLowerCase();
+                const stateNormalized = state.trim().toUpperCase();
+
+                if (mode === "varejo") {
+                    if (cityNormalized === "fortaleza" && stateNormalized === "CE") {
+                        shippingCost = 20;
+                    } else {
+                        shippingCost = 110;
+                    }
+                } else if (mode === "atacado") {
+                    if (cityNormalized === "fortaleza" && stateNormalized === "CE") {
+                        shippingCost = 50;
+                    } else {
+                        shippingCost = 150;
+                    }
+                }
+                summaryShippingElem.textContent = `R$ ${shippingCost.toFixed(2).replace(".", ",")}`;
+                summaryTotalElem.textContent = `R$ ${(subtotal + shippingCost).toFixed(2).replace(".", ",")}`;
+            }
+
+            [cityInput, stateInput].forEach(input => {
+                input.addEventListener("change", () => {
+                    const subtotal = parseFloat(summarySubtotalElem.textContent.replace("R$ ", "").replace(",", "."));
+                    const currentMode = localStorage.getItem("mode") || "varejo";
+                    calculateShipping(subtotal, currentMode, cityInput.value, stateInput.value);
+                });
+            });
+
+            // Alternar visibilidade dos detalhes de pagamento
+            pixPaymentRadio.addEventListener("change", () => {
+                if (pixPaymentRadio.checked) {
+                    pixPaymentDetails.classList.add("active");
+                    cardPaymentDetails.classList.remove("active");
+                }
+            });
+
+            cardPaymentRadio.addEventListener("change", () => {
+                if (cardPaymentRadio.checked) {
+                    cardPaymentDetails.classList.add("active");
+                    pixPaymentDetails.classList.remove("active");
+                }
+            });
+
+            // Lógica para o botão Gerar PIX PagBank (Real)
+            if (generatePagBankPixRealButton) {
+                generatePagBankPixRealButton.addEventListener("click", async function() {
+                    // Validar formulários antes de prosseguir
+                    if (!customerForm.checkValidity()) {
+                        alert("Por favor, preencha todas as informações do cliente e endereço.");
+                        customerForm.reportValidity();
+                        return;
+                    }
+
+                    const customerName = document.getElementById("name").value;
+                    const customerEmail = document.getElementById("email").value;
+                    const customerPhone = document.getElementById("phone").value.replace(/\D/g, "");
+                    const customerCpf = document.getElementById("cpf").value.replace(/\D/g, "");
+
+                    const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+                    const currentMode = localStorage.getItem("mode") || "varejo";
+                    let subtotal = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+                    
+                    const shippingCostText = summaryShippingElem.textContent.replace("R$ ", "").replace(",", ".");
+                    const shippingCost = parseFloat(shippingCostText) || 0;
+                    const totalAmount = subtotal + shippingCost;
+                    const totalAmountCents = Math.round(totalAmount * 100);
+
+                    const orderReferenceId = `PS-${currentMode.toUpperCase()}-${Date.now()}`;
+
+                    const dadosParaBackend = {
+                        reference_id: orderReferenceId,
+                        customer: {
+                            name: customerName,
+                            email: customerEmail,
+                            tax_id: customerCpf, // CPF
+                            phones: [{
+                                country: "55",
+                                area: customerPhone.substring(0, 2),
+                                number: customerPhone.substring(2),
+                                type: "MOBILE"
+                            }]
+                        },
+                        items: cartItems.map(item => ({
+                            reference_id: item.id.toString(), // Garanta que o ID do produto seja uma string
+                            name: item.name,
+                            quantity: item.quantity,
+                            unit_amount: Math.round(item.price * 100) // Preço unitário em centavos
+                        })),
+                        shipping: {
+                            address: {
+                                street: document.getElementById("street").value,
+                                number: document.getElementById("number").value,
+                                complement: document.getElementById("complement").value || undefined, // Opcional
+                                locality: document.getElementById("neighborhood").value, // Bairro
+                                city: document.getElementById("city").value,
+                                region_code: document.getElementById("state").value, // Sigla do Estado
+                                country: "BRA",
+                                postal_code: document.getElementById("cep").value.replace(/\D/g, "")
+                            },
+                            amount: Math.round(shippingCost * 100) // Custo do frete em centavos
+                        },
+                        total_amount_cents: totalAmountCents // Valor total em centavos para o QR Code
+                    };
+
+                    // Exibir mensagem de processando e desabilitar botão
+                    generatePagBankPixRealButton.disabled = true;
+                    generatePagBankPixRealButton.textContent = "Processando PIX...";
+                    pagbankPixInfoContainer.style.display = "none";
+                    pagbankPaymentErrorMessage.style.display = "none";
+                    pagbankPaymentErrorMessage.textContent = "";
+
+                    try {
+                        // Chamar a Função Netlify
+                        const response = await fetch("/.netlify/functions/gerar-pix-pagbank", {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json"
+                            },
+                            body: JSON.stringify(dadosParaBackend)
+                        });
+
+                        const responseData = await response.json();
+
+                        if (response.ok) {
+                            console.log("Resposta da função Netlify (gerar-pix-pagbank):", responseData);
+                            // Sucesso! Exibir o QR Code e informações
+                            const qrCodeLink = responseData.links.find(link => link.rel === "QRCODE.PNG" || link.media === "image/png");
+                            if (qrCodeLink) {
+                                pagbankPixQrCodeImage.src = qrCodeLink.href;
+                            } else {
+                                console.error("Link do QR Code PNG não encontrado na resposta.");
+                                pagbankPixQrCodeImage.alt = "Erro ao carregar QR Code";
+                            }
+                            pagbankPixCopiaCola.value = responseData.text; 
+                            pagbankPixOrderId.textContent = `ID do Pedido PagBank: ${responseData.id}`;
+                            // A API do PagBank para PIX geralmente inclui a data de expiração no payload de criação
+                            // Se a sua função Netlify não a retorna, você pode exibir uma mensagem genérica ou ajustar a função.
+                            pagbankPixExpiration.textContent = "Validade do PIX: Verifique no app de pagamento."; 
+                            
+                            pagbankPixInfoContainer.style.display = "block";
+                            generatePagBankPixRealButton.textContent = "PIX Gerado! Pague Abaixo";
+                            // Não reabilitar o botão imediatamente para evitar múltiplas gerações
+                        } else {
+                            console.error("Erro ao gerar PIX PagBank:", responseData.error);
+                            pagbankPaymentErrorMessage.textContent = `Erro ao gerar PIX: ${responseData.error || "Tente novamente."}`;
+                            pagbankPaymentErrorMessage.style.display = "block";
+                            generatePagBankPixRealButton.disabled = false;
+                            generatePagBankPixRealButton.textContent = "Gerar PIX PagBank";
+                        }
+                    } catch (error) {
+                        console.error("Erro de rede ou ao chamar a função Netlify:", error);
+                        pagbankPaymentErrorMessage.textContent = "Erro de comunicação ao gerar PIX. Verifique sua conexão e tente novamente.";
+                        pagbankPaymentErrorMessage.style.display = "block";
+                        generatePagBankPixRealButton.disabled = false;
+                        generatePagBankPixRealButton.textContent = "Gerar PIX PagBank";
+                    }
+                });
+            }
+
+            // Lógica para copiar código PIX
+            if (copyPagBankPixCodeButton) {
+                copyPagBankPixCodeButton.addEventListener("click", function() {
+                    pagbankPixCopiaCola.select();
+                    document.execCommand("copy");
+                    alert("Código PIX copiado!");
+                });
+            }
+
+            // Máscaras de formulário (simples, podem ser melhoradas com bibliotecas)
+            const phoneInput = document.getElementById("phone");
+            phoneInput.addEventListener("input", function (e) {
+                let value = e.target.value.replace(/\D/g, "");
+                if (value.length > 11) value = value.substring(0, 11);
+                let formattedValue = "";
+                if (value.length > 0) {
+                    formattedValue = "(" + value.substring(0, 2);
+                    if (value.length > 2) {
+                        formattedValue += ") " + value.substring(2, value.length > 6 ? 7 : value.length);
+                    }
+                    if (value.length > 7) {
+                        formattedValue += "-" + value.substring(7);
+                    }
+                }
+                e.target.value = formattedValue;
+            });
+
+            const cpfInput = document.getElementById("cpf");
+            cpfInput.addEventListener("input", function(e) {
+                let value = e.target.value.replace(/\D/g, "");
+                if (value.length > 11) value = value.substring(0, 11);
+                let formattedValue = "";
+                if (value.length > 0) {
+                    formattedValue = value.substring(0,3);
+                    if (value.length > 3) formattedValue += "." + value.substring(3,6);
+                    if (value.length > 6) formattedValue += "." + value.substring(6,9);
+                    if (value.length > 9) formattedValue += "-" + value.substring(9,11);
+                }
+                e.target.value = formattedValue;
+            });
+
+            const cepInput = document.getElementById("cep");
+            cepInput.addEventListener("input", function(e) {
+                let value = e.target.value.replace(/\D/g, "");
+                if (value.length > 8) value = value.substring(0, 8);
+                let formattedValue = "";
+                if (value.length > 0) {
+                    formattedValue = value.substring(0,5);
+                    if (value.length > 5) formattedValue += "-" + value.substring(5);
+                }
+                e.target.value = formattedValue;
+            });
+
+            // Carregar resumo do pedido ao carregar a página
+            updateCheckoutSummary();
+        });
+    </script>
+</body>
+</html>

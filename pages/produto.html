@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../images/logos/PS-Logo_05.png" type="image/png">
+    <title>Produto - Pele Sensual Moda Íntima</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/header-decoration.css">
+    <link rel="stylesheet" href="../css/mode-toggle.css">
+</head>
+<body>
+    <!-- Botão de Alternância Varejo/Atacado -->
+    <div class="mode-toggle-container">
+        <div class="mode-toggle">
+            <button id="retail-mode" class="active">Varejo</button>
+            <button id="wholesale-mode">Atacado</button>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header-decoration">
+        <div class="header-pattern"></div>
+        <div class="container">
+            <div class="header-icons">
+                <div class="header-icon">
+                    <i class="fas fa-heart"></i>
+                    <span>Qualidade Premium</span>
+                </div>
+                <div class="header-icon">
+                    <i class="fas fa-truck"></i>
+                    <span>Entrega Rápida</span>
+                </div>
+                <div class="header-icon">
+                    <i class="fas fa-tag"></i>
+                    <span>Melhores Preços</span>
+                </div>
+                <div class="header-icon">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Compra Segura</span>
+                </div>
+            </div>
+            <div class="header-content">
+                <div class="logo">
+                    <img src="../images/logos/PS-Logo_01.png" alt="Pele Sensual Moda Íntima" class="main-logo">
+                </div>
+                <div class="slogan">Conforto, leveza e qualidade</div>
+                <nav>
+                    <ul>
+                        <li><a href="../index.html">Início</a></li>
+                        <li><a href="../index.html#produtos-adulto">Adulto</a></li>
+                        <li><a href="../index.html#produtos-infantil">Infantil</a></li>
+                        <li><a href="../index.html#sobre">Sobre Nós</a></li>
+                        <li><a href="../index.html#contato">Contato</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Produto Detalhe -->
+    <section class="product-detail">
+        <div class="container">
+            <div class="product-container" id="product-detail-container">
+                <!-- Conteúdo será preenchido dinamicamente via JavaScript -->
+                <div class="product-images">
+                    <img src="../images/calca_microfibra_016.png" alt="Produto" class="product-main-image">
+                    <div class="product-thumbnails">
+                        <img src="../images/calca_microfibra_016.png" alt="Thumbnail" class="product-thumbnail active">
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h1>Calça Microfibra</h1>
+                    <p class="ref">REF: 016</p>
+                    <p class="material">Tecido: Microfibra</p>
+                    <p class="description">Calcinha em tecido microfibra de alta qualidade, proporcionando conforto e durabilidade. Modelo versátil para o dia a dia.</p>
+                    <p class="price" data-price="4.70">R$ 4,70</p>
+                    
+                    <div class="size-selector">
+                        <h3>Tamanho</h3>
+                        <div class="size-options">
+                            <div class="size-option" data-size="P">P</div>
+                            <div class="size-option" data-size="M">M</div>
+                            <div class="size-option" data-size="G">G</div>
+                            <div class="size-option" data-size="GG">GG</div>
+                        </div>
+                    </div>
+                    
+                    <div class="quantity-selector">
+                        <h3>Quantidade</h3>
+                        <div class="quantity-control">
+                            <button>-</button>
+                            <input type="number" value="1" min="1" max="99">
+                            <button>+</button>
+                        </div>
+                    </div>
+                    
+                    <div class="product-actions">
+                        <button class="btn add-to-cart" data-id="016">Adicionar ao Carrinho</button>
+                        <button class="btn btn-secondary" id="buy-now-button">Comprar Agora</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Produtos Relacionados -->
+    <section class="products">
+        <div class="container">
+            <h2>Produtos Relacionados</h2>
+            <div class="product-grid">
+                <!-- Calça Modal -->
+                <div class="product-card">
+                    <img src="../images/calca_modal_012.png" alt="Calça Modal">
+                    <div class="content">
+                        <h3>Calça Modal</h3>
+                        <p class="material">Tecido: Modal</p>
+                        <p class="sizes">Tamanhos: P, M, G, GG</p>
+                        <p class="price" data-price="5.20">R$ 5,20</p>
+                        <p class="ref">REF: 012</p>
+                        <div class="actions">
+                            <a href="#" class="btn btn-sm add-to-cart" data-id="012">Adicionar ao Carrinho</a>
+                            <a href="produto.html?id=012" class="btn btn-sm">Ver Detalhes</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Pala Cotton -->
+                <div class="product-card">
+                    <img src="../images/pala_cotton_013.png" alt="Pala Cotton">
+                    <div class="content">
+                        <h3>Pala Cotton</h3>
+                        <p class="material">Tecido: Cotton (algodão) Amaciado - Fio 40</p>
+                        <p class="sizes">Tamanhos: P, M, G, GG</p>
+                        <p class="price" data-price="6.50">R$ 6,50</p>
+                        <p class="ref">REF: 013</p>
+                        <div class="actions">
+                            <a href="#" class="btn btn-sm add-to-cart" data-id="013">Adicionar ao Carrinho</a>
+                            <a href="produto.html?id=013" class="btn btn-sm">Ver Detalhes</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Fio Pala Dupla -->
+                <div class="product-card">
+                    <img src="../images/fio_pala_dupla_050.png" alt="Fio Pala Dupla">
+                    <div class="content">
+                        <h3>Fio Pala Dupla</h3>
+                        <p class="material">Tecido: Microfibra</p>
+                        <p class="sizes">Tamanhos: P, M, G, GG</p>
+                        <p class="price" data-price="7.00">R$ 7,00</p>
+                        <p class="ref">REF: 050</p>
+                        <div class="actions">
+                            <a href="#" class="btn btn-sm add-to-cart" data-id="050">Adicionar ao Carrinho</a>
+                            <a href="produto.html?id=050" class="btn btn-sm">Ver Detalhes</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Carrinho -->
+    <div class="cart">
+        <div class="cart-header">
+            <h3>Seu Carrinho</h3>
+            <button class="cart-close">&times;</button>
+        </div>
+        <div class="cart-items">
+            <!-- Itens do carrinho serão adicionados dinamicamente via JavaScript -->
+        </div>
+        <div class="cart-total">
+            <span>Total:</span>
+            <span class="cart-total-value">R$ 0,00</span>
+        </div>
+        <div class="cart-buttons">
+            <button class="btn checkout-button">Finalizar Compra</button>
+            <button class="btn btn-secondary continue-shopping">Continuar Comprando</button>
+        </div>
+    </div>
+
+    <!-- Botão do Carrinho -->
+    <div class="cart-button">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-count">0</span>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Pele Sensual</h3>
+                    <p>Moda íntima com conforto, leveza e qualidade.</p>
+                    <p><i class="fas fa-phone"></i> (85) 99943-6548</p>
+                    <p><i class="fas fa-envelope"></i> pelesensualmodaintima@gmail.com</p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/pelesensual?igsh=bXU3a2Z6NmVwbzhz" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/5585999436548" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Categorias</h3>
+                    <ul>
+                        <li><a href="../index.html#produtos-adulto">Moda Íntima Adulto</a></li>
+                        <li><a href="../index.html#produtos-infantil">Moda Íntima Infantil</a></li>
+                        <li><a href="../index.html#embalagens">Embalagens e Kits</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Informações</h3>
+                    <ul>
+                        <li><a href="../index.html#sobre">Sobre Nós</a></li>
+                        <li><a href="../index.html#contato">Contato</a></li>
+                        <li><a href="#">Política de Privacidade</a></li>
+                        <li><a href="#">Termos e Condições</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2025 Pele Sensual Moda Íntima. Todos os direitos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Script para carregar os detalhes do produto com base no ID da URL
+        document.addEventListener('DOMContentLoaded', function() {
+            // Obter o ID do produto da URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const productId = urlParams.get('id');
+            
+            // Dados dos produtos (em uma aplicação real, esses dados viriam de um banco de dados)
+            const products = {
+                '016': {
+                    name: 'Calça Microfibra',
+                    ref: '016',
+                    material: 'Microfibra',
+                    description: 'Calcinha em tecido microfibra de alta qualidade, proporcionando conforto e durabilidade. Modelo versátil para o dia a dia.',
+                    price: 4.70,
+                    sizes: ['P', 'M', 'G', 'GG'],
+                    image: '../images/calca_microfibra_frente_1.png',
+                    additionalImages: [
+                        '../images/calca_microfibra_frente_2.png',
+                        '../images/calca_microfibra_costas_1.png',
+                        '../images/calca_microfibra_costas_2.png',
+                        '../images/calca_microfibra_016.png'
+                    ]
+                },
+                '012': {
+                    name: 'Calça Modal',
+                    ref: '012',
+                    material: 'Modal',
+                    description: 'Calcinha em tecido modal, extremamente macio e confortável. Ideal para uso diário.',
+                    price: 5.20,
+                    sizes: ['P', 'M', 'G', 'GG'],
+                    image: '../images/calcola_modal_frente_1.png',
+                    additionalImages: [
+                        '../images/calcola_modal_costas_1.png',
+                        '../images/calça modal.png', 
+                        '../images/calça modal 2.png',
+                        '../images/calca_modal_012.png'
+                    ]
+                },
+                '013': {
+                    name: 'Pala Cotton',
+                    ref: '013',
+                    material: 'Cotton (algodão) Amaciado - Fio 40',
+                    description: 'Calcinha em tecido cotton amaciado, proporcionando conforto e respirabilidade. Perfeita para o dia a dia.',
+                    price: 6.50,
+                    sizes: ['P', 'M', 'G', 'GG'],
+                    image: '../images/pala_cotton_frente_1.png',
+                    additionalImages: [
+                        '../images/pala_cotton_costas_1.png',
+                        '../images/pala_cotton_detalhes.png',
+                        '../images/pala_cotton_013.png'
+                    ]
+                },
+                '050': {
+                    name: 'Fio Pala Dupla',
+                    ref: '050',
+                    material: 'Microfibra',
+                    description: 'Fio dental com pala dupla em microfibra, combinando sensualidade e conforto.',
+                    price: 7.00,
+                    sizes: ['P', 'M', 'G', 'GG'],
+                    image: '../images/fio_pala_dupla_050.png',
+                    additionalImages: []
+                },
+                '023': {
+                    name: 'Calça Plus',
+                    ref: '023',
+                    material: 'Microfibra',
+                    description: 'Calcinha plus size em microfibra, desenvolvida especialmente para proporcionar conforto e caimento perfeito.',
+                    price: 8.00,
+                    sizes: ['G', 'GG', 'XG', 'XXG'],
+                    image: '../images/calca_plus_023.png',
+                    additionalImages: []
+                },
+                '052': {
+                    name: 'Fio Largo',
+                    ref: '052',
+                    material: 'Microfibra',
+                    description: 'Fio dental largo em microfibra, proporcionando conforto e sensualidade.',
+                    price: 7.50,
+                    sizes: ['M', 'G', 'GG'],
+                    image: '../images/fio_largo_frente_1.png',
+                    additionalImages: [
+                        '../images/fio_largo_costas_1.png',
+                        '../images/fio_largo_052.png'
+                    ]
+                },
+                '1020': {
+                    name: 'Calça Lateral Dupla',
+                    ref: '1020',
+                    material: 'Microfibra',
+                    description: 'Calcinha com lateral dupla em microfibra, design moderno e confortável.',
+                    price: 6.50,
+                    sizes: ['P', 'M', 'G', 'GG'],
+                    image: '../images/calca_lateral_dupla_1020.png',
+                    additionalImages: []
+                },
+                '002': {
+                    name: 'Infantil Trix',
+                    ref: '002',
+                    material: 'Modal Poá',
+                    description: 'Calcinha infantil em modal com estampa poá, confortável e delicada para as crianças.',
+                    price: 4.20,
+                    sizes: ['P', 'M', 'G', 'GG'],
+                    image: '../images/infantil_trix_frente_1.png',
+                    additionalImages: [
+                        '../images/infantil_trix_costas_1.png',
+                        '../images/infantil_trix_002.png'
+                    ]
+                },
+                '014': {
+                    name: 'Tanga Lari',
+                    ref: '014',
+                    material: 'Cotton',
+                    description: 'Tanga em tecido cotton, proporcionando conforto e elegância. Modelo versátil para o dia a dia.',
+                    price: 6.00,
+                    sizes: ['M', 'G', 'GG'],
+                    image: '../images/tanga_lari_frente_1.png',
+                    additionalImages: [
+                        '../images/tanga_lari_costas_1.png'
+                    ]
+                },
+                '026': {
+                    name: 'Box Feminina',
+                    ref: '026',
+                    material: 'Microfibra',
+                    description: 'Calcinha box em tecido microfibra de alta qualidade, proporcionando conforto e durabilidade. Disponível em cores sortidas.',
+                    price: 7.00,
+                    sizes: ['P', 'M', 'G', 'GG'],
+                    image: '../images/box_feminina/box_feminina_frente_1.png',
+                    additionalImages: [
+                        '../images/box_feminina/box_feminina_traseira_1.png',
+                        '../images/box_feminina/box_feminina_detalhe_1.jpg'
+                    ]
+                },
+                'caixa': {
+                    name: 'Caixa para Presente',
+                    ref: 'Tamanho: 19cm x 14cm x 5cm',
+                    material: 'Kit: Caixa, papel seda, adesivo e sacola',
+                    description: 'Kit completo para presente contendo caixa, papel seda, adesivo e sacola. Capacidade para até 5 calcinhas.',
+                    price: 5.00,
+                    sizes: ['Único'],
+                    image: '../images/caixa_embalagem.png',
+                    additionalImages: []
+                }
+            };
+            
+            // Se o produto existir, preencher os detalhes
+            if (productId && products[productId]) {
+                const product = products[productId];
+                
+                // Atualizar a imagem principal
+                document.querySelector('.product-main-image').src = product.image;
+                document.querySelector('.product-main-image').alt = product.name;
+                
+                // Atualizar as thumbnails
+                const thumbnailContainer = document.querySelector('.product-thumbnails');
+                thumbnailContainer.innerHTML = '';
+                
+                // Adicionar a imagem principal como primeira thumbnail
+                const mainThumbnail = document.createElement('img');
+                mainThumbnail.src = product.image;
+                mainThumbnail.alt = product.name;
+                mainThumbnail.classList.add('product-thumbnail', 'active');
+                mainThumbnail.addEventListener('click', function() {
+                    document.querySelector('.product-main-image').src = this.src;
+                    document.querySelectorAll('.product-thumbnail').forEach(thumb => thumb.classList.remove('active'));
+                    this.classList.add('active');
+                });
+                thumbnailContainer.appendChild(mainThumbnail);
+                
+                // Adicionar imagens adicionais se existirem
+                if (product.additionalImages && product.additionalImages.length > 0) {
+                    product.additionalImages.forEach(imgSrc => {
+                        const thumbnail = document.createElement('img');
+                        thumbnail.src = imgSrc;
+                        thumbnail.alt = product.name;
+                        thumbnail.classList.add('product-thumbnail');
+                        thumbnail.addEventListener('click', function() {
+                            document.querySelector('.product-main-image').src = this.src;
+                            document.querySelectorAll('.product-thumbnail').forEach(thumb => thumb.classList.remove('active'));
+                            this.classList.add('active');
+                        });
+                        thumbnailContainer.appendChild(thumbnail);
+                    });
+                }
+                
+                // Atualizar as informações do produto
+                document.querySelector('.product-info h1').textContent = product.name;
+                document.querySelector('.product-info .ref').textContent = `REF: ${product.ref}`;
+                document.querySelector('.product-info .material').textContent = `Tecido: ${product.material}`;
+                document.querySelector('.product-info .description').textContent = product.description;
+                document.querySelector('.product-info .price').textContent = `R$ ${product.price.toFixed(2).replace('.', ',')}`;
+                document.querySelector('.product-info .price').setAttribute('data-price', product.price);
+                
+                // Atualizar o botão de adicionar ao carrinho
+                document.querySelector('.add-to-cart').setAttribute('data-id', productId);
+                
+                // Atualizar as opções de tamanho
+                const sizeOptions = document.querySelector('.size-options');
+                sizeOptions.innerHTML = '';
+                
+                product.sizes.forEach(size => {
+                    const sizeOption = document.createElement('div');
+                    sizeOption.classList.add('size-option');
+                    sizeOption.setAttribute('data-size', size);
+                    sizeOption.textContent = size;
+                    sizeOptions.appendChild(sizeOption);
+                });
+                
+                // Adicionar evento de clique às opções de tamanho
+                document.querySelectorAll('.size-option').forEach(option => {
+                    option.addEventListener('click', () => {
+                        document.querySelectorAll('.size-option').forEach(opt => opt.classList.remove('selected'));
+                        option.classList.add('selected');
+                    });
+                });
+
+                // Adicionar evento de clique ao botão Comprar Agora
+                const buyNowButton = document.getElementById('buy-now-button');
+                if (buyNowButton) {
+                    buyNowButton.addEventListener('click', () => {
+                        const productId = document.querySelector('.add-to-cart').getAttribute('data-id');
+                        const productName = document.querySelector('.product-info h1').textContent;
+                        const productPrice = parseFloat(document.querySelector('.product-info .price').getAttribute('data-price'));
+                        const productImage = document.querySelector('.product-main-image').src;
+                        const quantityInput = document.querySelector('.quantity-control input');
+                        const quantity = parseInt(quantityInput.value);
+
+                        // Obtém o tamanho selecionado
+                        const selectedSize = document.querySelector('.size-option.selected');
+                        if (!selectedSize) {
+                            cart.showMessage("Por favor, selecione um tamanho");
+                            return;
+                        }
+                        const size = selectedSize.textContent;
+
+                        // Adiciona ao carrinho
+                        cart.addItem(productId, productName, productPrice, size, productImage, quantity);
+
+                        // Redireciona para o checkout
+                        window.location.href = '../checkout.html'; 
+                    });
+                }
+            }
+        });
+    </script>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/image-zoom.js"></script>
+    <script src="../js/mode-toggle.js"></script>
+    <script src="../js/whatsapp-button.js"></script>
+    <script src="../js/pagseguro-integration.js"></script>
+</body>
+</html>

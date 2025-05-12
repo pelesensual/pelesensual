@@ -1,0 +1,9 @@
+[build]
+  # Certifique-se que este caminho corresponde à pasta que você criou.
+  functions = "netlify/functions"
+
+# Este bloco é opcional, mas recomendado para URLs mais amigáveis.
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
