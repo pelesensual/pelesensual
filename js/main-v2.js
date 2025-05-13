@@ -334,11 +334,26 @@ function initProductPage() {
   if (addToCartBtn) addToCartBtn.addEventListener("click", () => {
     const selectedSize = document.querySelector(".size-option.selected");
     if (!selectedSize) { cart.showMessage("Por favor, selecione um tamanho"); return; }
+
+    const productNameElem = document.querySelector(".product-info h1");
+    const productPriceElem = document.querySelector(".product-info .price");
+    const productImageElem = document.querySelector(".product-main-image img");
+
+    const productName = productNameElem ? productNameElem.textContent : "Produto"; 
+    const productBasePrice = productPriceElem ? parseFloat(productPriceElem.getAttribute("data-price")) : 0; 
+    const productImageSrc = productImageElem ? productImageElem.src : "images/logos/PS-Logo_05.png"; 
+
+    if (!productNameElem || !productPriceElem || !productImageElem) {
+        console.error("Não foi possível encontrar todos os elementos de informação do produto na página de detalhes.");
+        cart.showMessage("Erro ao obter detalhes do produto. Tente novamente.");
+        return;
+    }
+
     handleAddToCartInteraction(quantityInput,
       addToCartBtn.getAttribute("data-id"),
-      document.querySelector(".product-info h1").textContent,
-      parseFloat(document.querySelector(".product-info .price").getAttribute("data-price")),
-      document.querySelector(".product-main-image img").src,
+      productName,
+      productBasePrice,
+      productImageSrc,
       selectedSize.textContent);
   });
 
@@ -346,11 +361,27 @@ function initProductPage() {
   if (buyNowBtn) buyNowBtn.addEventListener("click", event => {
     const selectedSize = document.querySelector(".size-option.selected");
     if (!selectedSize) { cart.showMessage("Por favor, selecione um tamanho."); event.preventDefault(); return; }
+
+    const productNameElem = document.querySelector(".product-info h1");
+    const productPriceElem = document.querySelector(".product-info .price");
+    const productImageElem = document.querySelector(".product-main-image img");
+
+    const productName = productNameElem ? productNameElem.textContent : "Produto"; 
+    const productBasePrice = productPriceElem ? parseFloat(productPriceElem.getAttribute("data-price")) : 0; 
+    const productImageSrc = productImageElem ? productImageElem.src : "images/logos/PS-Logo_05.png"; 
+
+    if (!productNameElem || !productPriceElem || !productImageElem) {
+        console.error("Não foi possível encontrar todos os elementos de informação do produto na página de detalhes para Comprar Agora.");
+        cart.showMessage("Erro ao obter detalhes do produto. Tente novamente.");
+        event.preventDefault();
+        return;
+    }
+
     handleAddToCartInteraction(quantityInput,
         buyNowBtn.getAttribute("data-id"),
-        document.querySelector(".product-info h1").textContent,
-        parseFloat(document.querySelector(".product-info .price").getAttribute("data-price")),
-        document.querySelector(".product-main-image img").src,
+        productName,
+        productBasePrice,
+        productImageSrc,
         selectedSize.textContent);
     cart.updateTotals();
     const isWholesale = document.body.classList.contains("wholesale-mode");
@@ -359,7 +390,7 @@ function initProductPage() {
         if (!itemsOk) { cart.showMessage(`No atacado, cada item deve ter no mínimo ${cart.MIN_WHOLESALE_ITEM_QUANTITY} unidades.`); event.preventDefault(); return; }
         if (cart.totalQuantity < cart.MIN_WHOLESALE_TOTAL_QUANTITY) { cart.showMessage(`Pedido mínimo de ${cart.MIN_WHOLESALE_TOTAL_QUANTITY} peças para atacado.`); event.preventDefault(); return; }
     }
-    window.location.href = "../checkout.html";
+    window.location.href = "../checkout.html"; 
   });
 }
 
