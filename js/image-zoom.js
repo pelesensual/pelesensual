@@ -189,8 +189,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Adicionar ícones de zoom a todas as imagens de produtos
-    const productImages = document.querySelectorAll('.product-card img, .category-card img, .product-main-image');
-    productImages.forEach(img => {
+    const allProductImagesOnPage = document.querySelectorAll(".product-card img, .category-card img, .product-main-image");
+    allProductImagesOnPage.forEach(img => {
         // Adicionar ícone de zoom
         const zoomIcon = document.createElement('div');
         zoomIcon.classList.add('zoom-icon');
