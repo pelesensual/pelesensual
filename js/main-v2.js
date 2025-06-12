@@ -1,221 +1,129 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Botão de alternância Varejo/Atacado
-    const retailModeButton = document.getElementById('retail-mode');
-    const wholesaleModeButton = document.getElementById('wholesale-mode');
-
-    retailModeButton.addEventListener('click', function() {
-        retailModeButton.classList.add('active');
-        wholesaleModeButton.classList.remove('active');
-    });
-
-    wholesaleModeButton.addEventListener('click', function() {
-        wholesaleModeButton.classList.add('active');
-        retailModeButton.classList.remove('active');
-    });
-
-    // Banner rotativo
-    let slideIndex = 0;
-    const slides = document.querySelectorAll('.banner-slide');
-    const dots = document.querySelectorAll('.banner-dots .banner-dot');
-
-    function showSlide(index) {
-        slides.forEach(slide => slide.classList.remove('active'));
-        dots.forEach(dot => dot.classList.remove('active'));
-
-        slides[index].classList.add('active');
-        dots[index].classList.add('active');
-    }
-
-    function nextSlide() {
-        slideIndex++;
-        if (slideIndex >= slides.length) {
-            slideIndex = 0;
-        }
-        showSlide(slideIndex);
-    }
-
-    dots.forEach((dot, index) => {
-        dot.addEventListener('click', () => {
-            slideIndex = index;
-            showSlide(slideIndex);
-        });
-    });
-
-    setInterval(nextSlide, 5000);
-
-    // Carrinho
-    const cartButton = document.querySelector('.cart-button');
-    const cart = document.querySelector('.cart');
-    const cartCloseButton = document.querySelector('.cart-close');
-    const continueShoppingButton = document.querySelector('.continue-shopping');
-    const checkoutButton = document.querySelector('.checkout-button');
-    const cartItemsContainer = document.querySelector('.cart-items');
-    const cartTotalValue = document.querySelector('.cart-total-value');
-    let cartItems = [];
-
-    cartButton.addEventListener('click', () => {
-        cart.classList.add('active');
-    });
-
-    cartCloseButton.addEventListener('click', () => {
-        cart.classList.remove('active');
-    });
-
-    continueShoppingButton.addEventListener('click', () => {
-        cart.classList.remove('active');
-    });
-
-    function updateCartTotal() {
-        let total = 0;
-        cartItems.forEach(item => {
-            total += item.price * item.quantity;
-        });
-        cartTotalValue.textContent = `R$ ${total.toFixed(2)}`;
-    }
-
-    function displayCartItem(item) {
-        const cartItemDiv = document.createElement('div');
-        cartItemDiv.classList.add('cart-item');
-        cartItemDiv.innerHTML = `
-            <img src="${item.image}" alt="${item.name}">
-            <div class="cart-item-details">
-                <h4>${item.name}</h4>
-                <p>Tamanho: ${item.size}</p>
-                <p>Quantidade: ${item.quantity}</p>
-                <p>R$ ${(item.price * item.quantity).toFixed(2)}</p>
-            </div>
-            <button class="btn btn-remove" data-id="${item.id}">Remover</button>
-        `;
-        cartItemsContainer.appendChild(cartItemDiv);
-
-        const removeButton = cartItemDiv.querySelector('.btn-remove');
-        removeButton.addEventListener('click', () => {
-            cartItems = cartItems.filter(cartItem => cartItem.id !== item.id);
-            cartItemDiv.remove();
-            updateCartTotal();
-        });
-    }
-
-    function updateCartDisplay() {
-        cartItemsContainer.innerHTML = '';
-        cartItems.forEach(item => {
-            displayCartItem(item);
-        });
-        updateCartTotal();
-    }
-
-    // Modal de Seleção de Tamanho
-    const sizeModal = document.getElementById('size-modal');
-    const modalProductName = document.getElementById('modal-product-name');
-    const modalProductImage = document.getElementById('modal-product-image');
-    const modalProductPrice = document.getElementById('modal-product-price');
-    const modalProductRef = document.getElementById('modal-product-ref');
-    const sizeSelect = document.getElementById('size-select');
-    const quantityInput = document.getElementById('quantity-input');
-    const confirmAddToCartButton = document.getElementById('confirm-add-to-cart');
-    const cancelModalButton = document.getElementById('cancel-modal');
-    const decreaseQtyButton = document.getElementById('decrease-qty');
-    const increaseQtyButton = document.getElementById('increase-qty');
-    const modalCloseButton = document.querySelector('.modal-close');
-
-    let selectedProductId;
-    let selectedProductName;
-    let selectedProductPrice;
-    let selectedProductImage;
-
-    // Função para abrir o modal
-    function openSizeModal(productId, productName, productPrice, productImage) {
-        selectedProductId = productId;
-        selectedProductName = productName;
-        selectedProductPrice = productPrice;
-        selectedProductImage = productImage;
-
-        modalProductName.textContent = productName;
-        modalProductImage.src = productImage;
-        modalProductPrice.textContent = `Preço: R$ ${productPrice}`;
-        modalProductRef.textContent = `REF: ${productId}`;
-
-        // Limpar e preencher as opções de tamanho (exemplo)
+    // Função utilitária para abrir o modal de seleção
+    function openSizeModal(product) {
+        // Preenche informações do produto no modal
+        document.getElementById('modal-product-name').textContent = product.name;
+        document.getElementById('modal-product-image').src = product.image;
+        document.getElementById('modal-product-price').textContent = `Preço: R$ ${product.price}`;
+        document.getElementById('modal-product-ref').textContent = `REF: ${product.id}`;
+        // Preenche tamanhos
+        const sizeSelect = document.getElementById('size-select');
         sizeSelect.innerHTML = '<option value="">Selecione o tamanho</option>';
-        ['P', 'M', 'G', 'GG'].forEach(size => {
-            const option = document.createElement('option');
-            option.value = size;
-            option.textContent = size;
-            sizeSelect.appendChild(option);
+        (product.sizes || ['P','M','G','GG']).forEach(size => {
+            const opt = document.createElement('option');
+            opt.value = size;
+            opt.textContent = size;
+            sizeSelect.appendChild(opt);
         });
-
-        quantityInput.value = 1; // Resetar a quantidade
-
+        document.getElementById('quantity-input').value = 1;
+        // Salva produto selecionado
+        sizeModal.dataset.productId = product.id;
+        sizeModal.dataset.productName = product.name;
+        sizeModal.dataset.productPrice = product.price;
+        sizeModal.dataset.productImage = product.image;
         sizeModal.classList.add('active');
     }
 
-    // Evento para fechar o modal
+    // Fecha o modal
     function closeSizeModal() {
         sizeModal.classList.remove('active');
+        delete sizeModal.dataset.productId;
+        delete sizeModal.dataset.productName;
+        delete sizeModal.dataset.productPrice;
+        delete sizeModal.dataset.productImage;
     }
 
-    // Evento para adicionar ao carrinho após a seleção
-    confirmAddToCartButton.addEventListener('click', () => {
-        const selectedSize = sizeSelect.value;
-        const quantity = parseInt(quantityInput.value);
-
-        if (!selectedSize) {
-            alert('Por favor, selecione um tamanho.');
+    // Adiciona item ao carrinho
+    function addToCart(product, size, quantity) {
+        if (!size) {
+            alert('Informe o tamanho.');
             return;
         }
-
-        if (isNaN(quantity) || quantity <= 0) {
-            alert('Por favor, insira uma quantidade válida.');
+        if (!quantity || quantity < 1) {
+            alert('Informe a quantidade.');
             return;
         }
-
-        const newItem = {
-            id: selectedProductId + '-' + selectedSize, // ID único
-            name: selectedProductName,
-            price: selectedProductPrice,
-            image: selectedProductImage,
-            size: selectedSize,
-            quantity: quantity
-        };
-
-        cartItems.push(newItem);
-        updateCartDisplay();
+        // Simples: salva no localStorage (pode adaptar para seu sistema)
+        const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+        const id = `${product.id}-${size}`;
+        const existing = cart.find(item => item.id === id);
+        if (existing) {
+            existing.quantity += quantity;
+        } else {
+            cart.push({
+                id,
+                name: product.name,
+                price: product.price,
+                image: product.image,
+                size,
+                quantity
+            });
+        }
+        localStorage.setItem('cart', JSON.stringify(cart));
+        updateCartCount();
         closeSizeModal();
+        alert('Produto adicionado ao carrinho!');
+    }
+
+    // Atualiza o contador do carrinho
+    function updateCartCount() {
+        const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+        const count = cart.reduce((sum, item) => sum + item.quantity, 0);
+        document.querySelector('.cart-count').textContent = count;
+    }
+
+    // Eventos do modal
+    const sizeModal = document.getElementById('size-modal');
+    document.getElementById('confirm-add-to-cart').onclick = function() {
+        const size = document.getElementById('size-select').value;
+        const quantity = parseInt(document.getElementById('quantity-input').value, 10);
+        const product = {
+            id: sizeModal.dataset.productId,
+            name: sizeModal.dataset.productName,
+            price: parseFloat(sizeModal.dataset.productPrice),
+            image: sizeModal.dataset.productImage
+        };
+        addToCart(product, size, quantity);
+    };
+    document.getElementById('cancel-modal').onclick = closeSizeModal;
+    document.querySelector('.modal-close').onclick = closeSizeModal;
+    document.getElementById('decrease-qty').onclick = function() {
+        const input = document.getElementById('quantity-input');
+        if (parseInt(input.value, 10) > 1) input.value = parseInt(input.value, 10) - 1;
+    };
+    document.getElementById('increase-qty').onclick = function() {
+        const input = document.getElementById('quantity-input');
+        input.value = parseInt(input.value, 10) + 1;
+    };
+
+    // Função para extrair dados do botão
+    function getProductFromButton(btn) {
+        return {
+            id: btn.dataset.id,
+            name: btn.dataset.name,
+            price: parseFloat(btn.dataset.price),
+            image: btn.dataset.image,
+            sizes: btn.dataset.sizes ? btn.dataset.sizes.split(',') : undefined
+        };
+    }
+
+    // Ativa todos os botões "Adicionar ao Carrinho" da home
+    document.querySelectorAll('.add-to-cart').forEach(btn => {
+        btn.onclick = function(e) {
+            e.preventDefault();
+            openSizeModal(getProductFromButton(btn));
+        };
     });
 
-    // Eventos dos botões de controle de quantidade
-    decreaseQtyButton.addEventListener('click', () => {
-        let qty = parseInt(quantityInput.value);
-        if (qty > 1) {
-            quantityInput.value = qty - 1;
-        }
+    // Ativa botões "Adicionar ao Pedido" e "Comprar Agora" na página de detalhes
+    // (ajuste os seletores conforme seu HTML)
+    document.querySelectorAll('.add-to-order, .buy-now').forEach(btn => {
+        btn.onclick = function(e) {
+            e.preventDefault();
+            openSizeModal(getProductFromButton(btn));
+        };
     });
 
-    increaseQtyButton.addEventListener('click', () => {
-        let qty = parseInt(quantityInput.value);
-        quantityInput.value = qty + 1;
-    });
-
-    // Evento para fechar o modal ao clicar no "x"
-    modalCloseButton.addEventListener('click', closeSizeModal);
-
-    // Evento para cancelar o modal
-    cancelModalButton.addEventListener('click', closeSizeModal);
-
-    // Adicionar produtos ao carrinho
-    document.querySelectorAll('.add-to-cart').forEach(button => {
-        button.addEventListener('click', () => {
-            const productId = button.dataset.id;
-            const productName = button.dataset.name;
-            const productPrice = parseFloat(button.dataset.price);
-            const productImage = button.dataset.image;
-
-            openSizeModal(productId, productName, productPrice, productImage);
-        });
-    });
-
-    // PagSeguro Checkout (simulação)
-    checkoutButton.addEventListener('click', () => {
-        alert('Checkout simulado. Implemente a lógica real do PagSeguro aqui.');
-    });
+    // Atualiza contador ao carregar
+    updateCartCount();
 });
