@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+html_content = '''<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="css/tabs.css">
     <link rel="stylesheet" href="css/mode-toggle.css">
     <link rel="stylesheet" href="css/whatsapp-button.css">
+    <link rel="stylesheet" href="css/modal-corrections.css">
 </head>
 <body>
     <!-- Botão de Alternância Varejo/Atacado -->
@@ -176,7 +177,7 @@
             <h2>Moda Íntima Adulto</h2>
             <div class="product-grid">
                 <!-- Calça Microfibra -->
-                <div class="product-card">
+                <div class="product-card" data-product-id="016">
                     <img src="images/calca_microfibra_frente_1.png" alt="Calça Microfibra">
                     <div class="content">
                         <h3>Calça Microfibra</h3>
@@ -185,14 +186,14 @@
                         <p class="price" data-price="4.70">R$ 4,70</p>
                         <p class="ref">REF: 016</p>
                         <div class="actions">
-                            <a href="#" class="btn btn-sm add-to-cart" data-id="016">Adicionar ao Carrinho</a>
+                            <button class="btn btn-sm add-to-cart" data-id="016" data-name="Calça Microfibra" data-price="4.70" data-image="images/calca_microfibra_frente_1.png">Adicionar ao Carrinho</button>
                             <a href="pages/produto.html?id=016" class="btn btn-sm">Ver Detalhes</a>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Calça Modal -->
-                <div class="product-card">
+                <div class="product-card" data-product-id="012">
                     <img src="images/calcola_modal_frente_1.png" alt="Calça Modal">
                     <div class="content">
                         <h3>Calça Modal</h3>
@@ -201,14 +202,14 @@
                         <p class="price" data-price="5.20">R$ 5,20</p>
                         <p class="ref">REF: 012</p>
                         <div class="actions">
-                            <a href="#" class="btn btn-sm add-to-cart" data-id="012">Adicionar ao Carrinho</a>
+                            <button class="btn btn-sm add-to-cart" data-id="012" data-name="Calça Modal" data-price="5.20" data-image="images/calcola_modal_frente_1.png">Adicionar ao Carrinho</button>
                             <a href="pages/produto.html?id=012" class="btn btn-sm">Ver Detalhes</a>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Pala Cotton -->
-                <div class="product-card">
+                <div class="product-card" data-product-id="013">
                     <img src="images/pala_cotton_frente_1.png" alt="Pala Cotton">
                     <div class="content">
                         <h3>Pala Cotton</h3>
@@ -217,14 +218,14 @@
                         <p class="price" data-price="6.50">R$ 6,50</p>
                         <p class="ref">REF: 013</p>
                         <div class="actions">
-                            <a href="#" class="btn btn-sm add-to-cart" data-id="013">Adicionar ao Carrinho</a>
+                            <button class="btn btn-sm add-to-cart" data-id="013" data-name="Pala Cotton" data-price="6.50" data-image="images/pala_cotton_frente_1.png">Adicionar ao Carrinho</button>
                             <a href="pages/produto.html?id=013" class="btn btn-sm">Ver Detalhes</a>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Tanga Lari -->
-                <div class="product-card">
+                <div class="product-card" data-product-id="014">
                     <img src="images/tanga_lari_frente_1.png" alt="Tanga Lari">
                     <div class="content">
                         <h3>Tanga Lari</h3>
@@ -233,14 +234,14 @@
                         <p class="price" data-price="6.00">R$ 6,00</p>
                         <p class="ref">REF: 014</p>
                         <div class="actions">
-                            <a href="#" class="btn btn-sm add-to-cart" data-id="014">Adicionar ao Carrinho</a>
+                            <button class="btn btn-sm add-to-cart" data-id="014" data-name="Tanga Lari" data-price="6.00" data-image="images/tanga_lari_frente_1.png">Adicionar ao Carrinho</button>
                             <a href="pages/produto.html?id=014" class="btn btn-sm">Ver Detalhes</a>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Fio Pala Dupla -->
-                <div class="product-card">
+                <div class="product-card" data-product-id="050">
                     <img src="images/fio_pala_dupla_050.png" alt="Fio Pala Dupla">
                     <div class="content">
                         <h3>Fio Pala Dupla</h3>
@@ -249,14 +250,14 @@
                         <p class="price" data-price="7.00">R$ 7,00</p>
                         <p class="ref">REF: 050</p>
                         <div class="actions">
-                            <a href="#" class="btn btn-sm add-to-cart" data-id="050">Adicionar ao Carrinho</a>
+                            <button class="btn btn-sm add-to-cart" data-id="050" data-name="Fio Pala Dupla" data-price="7.00" data-image="images/fio_pala_dupla_050.png">Adicionar ao Carrinho</button>
                             <a href="pages/produto.html?id=050" class="btn btn-sm">Ver Detalhes</a>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Calça Plus -->
-                <div class="product-card">
+                <div class="product-card" data-product-id="023">
                     <img src="images/calca_plus_023.png" alt="Calça Plus">
                     <div class="content">
                         <h3>Calça Plus</h3>
@@ -265,14 +266,14 @@
                         <p class="price" data-price="8.00">R$ 8,00</p>
                         <p class="ref">REF: 023</p>
                         <div class="actions">
-                            <a href="#" class="btn btn-sm add-to-cart" data-id="023">Adicionar ao Carrinho</a>
+                            <button class="btn btn-sm add-to-cart" data-id="023" data-name="Calça Plus" data-price="8.00" data-image="images/calca_plus_023.png">Adicionar ao Carrinho</button>
                             <a href="pages/produto.html?id=023" class="btn btn-sm">Ver Detalhes</a>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Fio Largo -->
-                <div class="product-card">
+                <div class="product-card" data-product-id="052">
                     <img src="images/fio_largo_frente_1.png" alt="Fio Largo">
                     <div class="content">
                         <h3>Fio Largo</h3>
@@ -281,14 +282,14 @@
                         <p class="price" data-price="7.50">R$ 7,50</p>
                         <p class="ref">REF: 052</p>
                         <div class="actions">
-                            <a href="#" class="btn btn-sm add-to-cart" data-id="052">Adicionar ao Carrinho</a>
+                            <button class="btn btn-sm add-to-cart" data-id="052" data-name="Fio Largo" data-price="7.50" data-image="images/fio_largo_frente_1.png">Adicionar ao Carrinho</button>
                             <a href="pages/produto.html?id=052" class="btn btn-sm">Ver Detalhes</a>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Calça Lateral Dupla -->
-                <div class="product-card">
+                <div class="product-card" data-product-id="1020">
                     <img src="images/calca_lateral_dupla_1020.png" alt="Calça Lateral Dupla">
                     <div class="content">
                         <h3>Calça Lateral Dupla</h3>
@@ -297,14 +298,14 @@
                         <p class="price" data-price="6.50">R$ 6,50</p>
                         <p class="ref">REF: 1020</p>
                         <div class="actions">
-                            <a href="#" class="btn btn-sm add-to-cart" data-id="1020">Adicionar ao Carrinho</a>
+                            <button class="btn btn-sm add-to-cart" data-id="1020" data-name="Calça Lateral Dupla" data-price="6.50" data-image="images/calca_lateral_dupla_1020.png">Adicionar ao Carrinho</button>
                             <a href="pages/produto.html?id=1020" class="btn btn-sm">Ver Detalhes</a>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Box Feminina -->
-                <div class="product-card">
+                <div class="product-card" data-product-id="026">
                     <img src="images/box_feminina/box_feminina_frente_1.png" alt="Box Feminina">
                     <div class="content">
                         <h3>Box Feminina</h3>
@@ -313,7 +314,7 @@
                         <p class="price" data-price="7.00">R$ 7,00</p>
                         <p class="ref">REF: 026 * Cores Sortidas</p>
                         <div class="actions">
-                            <a href="#" class="btn btn-sm add-to-cart" data-id="026">Adicionar ao Carrinho</a>
+                            <button class="btn btn-sm add-to-cart" data-id="026" data-name="Box Feminina" data-price="7.00" data-image="images/box_feminina/box_feminina_frente_1.png">Adicionar ao Carrinho</button>
                             <a href="pages/produto.html?id=026" class="btn btn-sm">Ver Detalhes</a>
                         </div>
                     </div>
@@ -342,7 +343,7 @@
             <h2>Moda Íntima Infantil</h2>
             <div class="product-grid">
                 <!-- Infantil Trix -->
-                <div class="product-card">
+                <div class="product-card" data-product-id="002">
                     <img src="images/infantil_trix_frente_1.png" alt="Infantil Trix">
                     <div class="content">
                         <h3>Infantil Trix</h3>
@@ -351,14 +352,14 @@
                         <p class="price" data-price="4.20">R$ 4,20</p>
                         <p class="ref">REF: 002</p>
                         <div class="actions">
-                            <a href="#" class="btn btn-sm add-to-cart" data-id="002">Adicionar ao Carrinho</a>
+                            <button class="btn btn-sm add-to-cart" data-id="002" data-name="Infantil Trix" data-price="4.20" data-image="images/infantil_trix_frente_1.png">Adicionar ao Carrinho</button>
                             <a href="pages/produto.html?id=002" class="btn btn-sm">Ver Detalhes</a>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Box Feminina Infantil -->
-                <div class="product-card">
+                <div class="product-card" data-product-id="026-infantil">
                     <img src="images/box_feminina/box_feminina_frente_1.png" alt="Box Feminina Infantil">
                     <div class="content">
                         <h3>Box Feminina Infantil</h3>
@@ -367,7 +368,7 @@
                         <p class="price" data-price="7.00">R$ 7,00</p>
                         <p class="ref">REF: 026 * Cores Sortidas</p>
                         <div class="actions">
-                            <a href="#" class="btn btn-sm add-to-cart" data-id="026">Adicionar ao Carrinho</a>
+                            <button class="btn btn-sm add-to-cart" data-id="026-infantil" data-name="Box Feminina Infantil" data-price="7.00" data-image="images/box_feminina/box_feminina_frente_1.png">Adicionar ao Carrinho</button>
                             <a href="pages/produto.html?id=026" class="btn btn-sm">Ver Detalhes</a>
                         </div>
                     </div>
@@ -382,7 +383,7 @@
             <h2>Embalagens e Kits</h2>
             <div class="product-grid">
                 <!-- Caixas e Embalagens -->
-                <div class="product-card">
+                <div class="product-card" data-product-id="embalagem">
                     <img src="images/embalagens/caixa_embalagem_principal.png" alt="Caixas e Embalagens">
                     <div class="content">
                         <h3>Caixas e Embalagens</h3>
@@ -391,14 +392,14 @@
                         <p class="price">A partir de R$ 5,00</p>
                         <p class="ref">Design exclusivo Pele Sensual</p>
                         <div class="actions">
-                            <a href="#" class="btn btn-sm add-to-cart" data-id="embalagem">Adicionar ao Carrinho</a>
+                            <button class="btn btn-sm add-to-cart" data-id="embalagem" data-name="Caixas e Embalagens" data-price="5.00" data-image="images/embalagens/caixa_embalagem_principal.png">Adicionar ao Carrinho</button>
                             <a href="pages/embalagens.html" class="btn btn-sm">Ver Detalhes</a>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Caixa de Presente -->
-                <div class="product-card">
+                <div class="product-card" data-product-id="caixa">
                     <img src="images/embalagens/caixa_presente_1.png" alt="Caixa de Presente">
                     <div class="content">
                         <h3>Caixa de Presente</h3>
@@ -407,14 +408,14 @@
                         <p class="price" data-price="7.00">R$ 7,00</p>
                         <p class="ref">Tamanho: 19cm x 14cm x 5cm</p>
                         <div class="actions">
-                            <a href="#" class="btn btn-sm add-to-cart" data-id="caixa">Adicionar ao Carrinho</a>
+                            <button class="btn btn-sm add-to-cart" data-id="caixa" data-name="Caixa de Presente" data-price="7.00" data-image="images/embalagens/caixa_presente_1.png">Adicionar ao Carrinho</button>
                             <a href="pages/embalagens.html" class="btn btn-sm">Ver Detalhes</a>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Embalagem Transparente -->
-                <div class="product-card">
+                <div class="product-card" data-product-id="embalagem-transparente">
                     <img src="images/embalagens/embalagem_transparente_1.png" alt="Embalagem Transparente">
                     <div class="content">
                         <h3>Embalagem Transparente</h3>
@@ -423,7 +424,7 @@
                         <p class="price" data-price="5.00">R$ 5,00</p>
                         <p class="ref">Tamanho: 25cm x 15cm</p>
                         <div class="actions">
-                            <a href="#" class="btn btn-sm add-to-cart" data-id="embalagem">Adicionar ao Carrinho</a>
+                            <button class="btn btn-sm add-to-cart" data-id="embalagem-transparente" data-name="Embalagem Transparente" data-price="5.00" data-image="images/embalagens/embalagem_transparente_1.png">Adicionar ao Carrinho</button>
                             <a href="pages/embalagens.html" class="btn btn-sm">Ver Detalhes</a>
                         </div>
                     </div>
@@ -456,6 +457,43 @@
         </div>
     </section>
 
+    <!-- Modal de Seleção de Tamanho -->
+    <div id="size-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-product-name">Selecionar Tamanho</h3>
+                <span class="modal-close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="product-info">
+                    <img id="modal-product-image" src="" alt="">
+                    <div class="product-details">
+                        <p id="modal-product-price"></p>
+                        <p id="modal-product-ref"></p>
+                    </div>
+                </div>
+                <div class="size-selection">
+                    <label for="size-select">Tamanho:</label>
+                    <select id="size-select">
+                        <option value="">Selecione o tamanho</option>
+                    </select>
+                </div>
+                <div class="quantity-selection">
+                    <label for="quantity-input">Quantidade:</label>
+                    <div class="quantity-controls">
+                        <button type="button" class="quantity-btn" id="decrease-qty">-</button>
+                        <input type="number" id="quantity-input" value="1" min="1" max="99">
+                        <button type="button" class="quantity-btn" id="increase-qty">+</button>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="confirm-add-to-cart" class="btn btn-primary">Adicionar ao Carrinho</button>
+                <button id="cancel-modal" class="btn btn-secondary">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
     <!-- Carrinho -->
     <div class="cart">
         <div class="cart-header">
@@ -479,6 +517,13 @@
     <div class="cart-button">
         <i class="fas fa-shopping-cart"></i>
         <span class="cart-count">0</span>
+    </div>
+
+    <!-- Botão WhatsApp -->
+    <div class="whatsapp-button">
+        <a href="https://wa.me/5585999436548" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+        </a>
     </div>
 
     <!-- Footer -->
@@ -526,4 +571,19 @@
     <script src="js/whatsapp-button.js"></script>
     <script src="js/pagseguro-integration.js"></script>
 </body>
-</html>
+</html>'''
+
+# Salvar o arquivo
+with open('index-corrigido.html', 'w', encoding='utf-8') as f:
+    f.write(html_content)
+
+print("✅ Arquivo index.html corrigido criado com sucesso!")
+print("\n🔧 Principais correções aplicadas:")
+print("• Adicionado link para css/modal-corrections.css")
+print("• Convertidos links <a> para botões <button> nos botões 'Adicionar ao Carrinho'")
+print("• Adicionados data-attributes necessários (data-name, data-price, data-image)")
+print("• Adicionados data-product-id em todos os product-cards")
+print("• Incluído modal de seleção de tamanho")
+print("• Adicionado botão WhatsApp")
+print("• Corrigidos IDs únicos para produtos duplicados")
+print("• Estrutura otimizada para funcionar com o JavaScript corrigido")
