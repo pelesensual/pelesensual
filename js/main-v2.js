@@ -1,241 +1,221 @@
+document.addEventListener('DOMContentLoaded', function() {
+    // Botão de alternância Varejo/Atacado
+    const retailModeButton = document.getElementById('retail-mode');
+    const wholesaleModeButton = document.getElementById('wholesale-mode');
 
-// ARQUIVO CORRIGIDO: main-v2.js
-// Funcionalidades principais do e-commerce Pele Sensual Moda Íntima
-
-// Carrinho de compras (mantém a lógica existente)
-let cart = {
-  items: [],
-  total: 0,
-  totalQuantity: 0,
-
-  RETAIL_INCREMENT: 4.00,
-  WHOLESALE_INCREMENT: 1.00,
-  MIN_WHOLESALE_ITEM_QUANTITY: 10,
-  INITIAL_WHOLESALE_ITEM_QUANTITY: 10,
-  STEP_WHOLESALE_ITEM_QUANTITY: 10,
-  MIN_WHOLESALE_TOTAL_QUANTITY: 200,
-
-  getAdjustedPrice: function(basePrice) {
-    const isWholesale = document.body.classList.contains("wholesale-mode");
-    if (isWholesale) {
-      return parseFloat(basePrice) + this.WHOLESALE_INCREMENT;
-    } else {
-      return parseFloat(basePrice) + this.RETAIL_INCREMENT;
-    }
-  },
-
-  // ... (mantém todas as outras funções do carrinho)
-  addItem: function(id, name, basePrice, size, image, quantity) {
-    const price = this.getAdjustedPrice(basePrice);
-    const existingItemIndex = this.items.findIndex(item => item.id === id && item.size === size);
-    const isWholesale = document.body.classList.contains("wholesale-mode");
-    let validatedQuantity = parseInt(quantity);
-
-    if (isWholesale) {
-      if (isNaN(validatedQuantity) || validatedQuantity < this.MIN_WHOLESALE_ITEM_QUANTITY) {
-        validatedQuantity = this.MIN_WHOLESALE_ITEM_QUANTITY;
-      }
-      if (validatedQuantity % this.STEP_WHOLESALE_ITEM_QUANTITY !== 0) {
-        validatedQuantity = Math.max(this.MIN_WHOLESALE_ITEM_QUANTITY, Math.round(validatedQuantity / this.STEP_WHOLESALE_ITEM_QUANTITY) * this.STEP_WHOLESALE_ITEM_QUANTITY);
-        if (validatedQuantity < this.MIN_WHOLESALE_ITEM_QUANTITY) validatedQuantity = this.MIN_WHOLESALE_ITEM_QUANTITY;
-      }
-    } else {
-      if (isNaN(validatedQuantity) || validatedQuantity < 1) {
-        validatedQuantity = 1;
-      }
-    }
-
-    if (existingItemIndex !== -1) {
-      this.items[existingItemIndex].quantity += validatedQuantity;
-      if (isWholesale) {
-        if (this.items[existingItemIndex].quantity < this.MIN_WHOLESALE_ITEM_QUANTITY) {
-          this.items[existingItemIndex].quantity = this.MIN_WHOLESALE_ITEM_QUANTITY;
-        }
-        if (this.items[existingItemIndex].quantity % this.STEP_WHOLESALE_ITEM_QUANTITY !== 0) {
-          this.items[existingItemIndex].quantity = Math.max(this.MIN_WHOLESALE_ITEM_QUANTITY, Math.round(this.items[existingItemIndex].quantity / this.STEP_WHOLESALE_ITEM_QUANTITY) * this.STEP_WHOLESALE_ITEM_QUANTITY);
-          if (this.items[existingItemIndex].quantity < this.MIN_WHOLESALE_ITEM_QUANTITY) this.items[existingItemIndex].quantity = this.MIN_WHOLESALE_ITEM_QUANTITY;
-        }
-      }
-      this.items[existingItemIndex].price = price;
-    } else {
-      this.items.push({
-        id: id,
-        name: name,
-        price: price,
-        basePrice: parseFloat(basePrice),
-        size: size,
-        image: image,
-        quantity: validatedQuantity
-      });
-    }
-
-    this.updateTotals();
-    this.updateCartUI();
-    this.saveCart();
-  },
-
-  // ... (mantém outras funções)
-  updateTotals: function() {
-    this.items.forEach(item => {
-      item.price = this.getAdjustedPrice(item.basePrice);
+    retailModeButton.addEventListener('click', function() {
+        retailModeButton.classList.add('active');
+        wholesaleModeButton.classList.remove('active');
     });
-    this.total = this.items.reduce((total, item) => total + (item.price * item.quantity), 0);
-    this.totalQuantity = this.items.reduce((count, item) => count + item.quantity, 0);
-  },
 
-  showMessage: function (message) {
-    const el = document.createElement("div"); 
-    el.classList.add("message"); 
-    el.textContent = message;
-    document.body.appendChild(el); 
-    setTimeout(() => el.classList.add("show"), 10);
-    setTimeout(() => { 
-      el.classList.remove("show"); 
-      setTimeout(() => document.body.removeChild(el), 300); 
-    }, 3000);
-  },
-
-  // ... (mantém outras funções como updateCartUI, saveCart, loadCart, etc.)
-};
-
-// CORREÇÃO 1: Função para extrair parâmetros da URL
-function getURLParameter(name) {
-  const urlParams = new URLSearchParams(window.location.search);
-  return urlParams.get(name);
-}
-
-// CORREÇÃO 2: Função para carregar dados do produto na página de detalhes
-function loadProductDetails() {
-  const productId = getURLParameter('id');
-  if (!productId) {
-    console.error('ID do produto não encontrado na URL');
-    return;
-  }
-
-  // Dados dos produtos (expandir conforme necessário)
-  const productsData = {
-    '016': {
-      id: '016',
-      name: 'Calça Microfibra',
-      basePrice: 4.70,
-      material: 'Microfibra',
-      sizes: ['P', 'M', 'G', 'GG'],
-      images: ['images/calca_microfibra_frente_1.png', 'images/calca_microfibra_tras_1.png'],
-      description: 'Calça confortável em microfibra, ideal para o dia a dia.'
-    },
-    '012': {
-      id: '012',
-      name: 'Calça Modal',
-      basePrice: 5.20,
-      material: 'Modal',
-      sizes: ['P', 'M', 'G', 'GG'],
-      images: ['images/calcola_modal_frente_1.png', 'images/calcola_modal_tras_1.png'],
-      description: 'Calça em modal, tecido macio e respirável.'
-    }
-    // Adicionar mais produtos conforme necessário
-  };
-
-  const product = productsData[productId];
-  if (!product) {
-    console.error('Produto não encontrado:', productId);
-    return;
-  }
-
-  // Atualizar elementos da página
-  const productNameElem = document.querySelector('.product-info h1');
-  const productPriceElem = document.querySelector('.product-info .price');
-  const productMaterialElem = document.querySelector('.product-info .material');
-  const productDescElem = document.querySelector('.product-info .description');
-  const productImageElem = document.querySelector('.product-main-image img');
-  const addToCartBtn = document.querySelector('.product-actions .add-to-cart');
-  const buyNowBtn = document.querySelector('.product-actions .buy-now');
-
-  if (productNameElem) productNameElem.textContent = product.name;
-  if (productPriceElem) {
-    const adjustedPrice = cart.getAdjustedPrice(product.basePrice);
-    productPriceElem.textContent = `R$ ${adjustedPrice.toFixed(2).replace('.', ',')}`;
-    productPriceElem.setAttribute('data-price', product.basePrice);
-  }
-  if (productMaterialElem) productMaterialElem.textContent = `Material: ${product.material}`;
-  if (productDescElem) productDescElem.textContent = product.description;
-  if (productImageElem) productImageElem.src = product.images[0];
-  if (addToCartBtn) addToCartBtn.setAttribute('data-id', product.id);
-  if (buyNowBtn) buyNowBtn.setAttribute('data-id', product.id);
-
-  // Atualizar opções de tamanho
-  const sizeOptions = document.querySelector('.size-options');
-  if (sizeOptions) {
-    sizeOptions.innerHTML = '';
-    product.sizes.forEach(size => {
-      const sizeBtn = document.createElement('button');
-      sizeBtn.classList.add('size-option');
-      sizeBtn.textContent = size;
-      sizeOptions.appendChild(sizeBtn);
+    wholesaleModeButton.addEventListener('click', function() {
+        wholesaleModeButton.classList.add('active');
+        retailModeButton.classList.remove('active');
     });
-  }
-}
 
-// CORREÇÃO 3: Modal de seleção melhorado (apenas seleção, não adiciona automaticamente)
-function openSizeModal(productId, productName, baseProductPrice, productImage) {
-  const modal = document.createElement("div"); 
-  modal.classList.add("modal"); 
-  modal.id = "size-selection-modal";
+    // Banner rotativo
+    let slideIndex = 0;
+    const slides = document.querySelectorAll('.banner-slide');
+    const dots = document.querySelectorAll('.banner-dots .banner-dot');
 
-  const product = window.productsData?.find(p => p.id === productId);
-  let sizesHTML = "<p>Selecione o Tamanho:</p>";
+    function showSlide(index) {
+        slides.forEach(slide => slide.classList.remove('active'));
+        dots.forEach(dot => dot.classList.remove('active'));
 
-  if (product && product.sizes) {
-    product.sizes.forEach(s => sizesHTML += `<button class="modal-size-option" data-size="${s}">${s}</button>`);
-  } else {
-    sizesHTML = "<p>Tamanhos não disponíveis.</p>";
-  }
-
-  const isWholesale = document.body.classList.contains("wholesale-mode");
-
-  modal.innerHTML = `
-    <div class="modal-content">
-      <span class="modal-close-button">&times;</span>
-      <h3>${productName}</h3>
-      <img src="${productImage}" alt="${productName}" style="max-width: 150px; margin-bottom: 15px;">
-      <div class="modal-size-options">${sizesHTML}</div>
-      <div class="modal-quantity-control">
-        <label for="modal-quantity">Quantidade:</label>
-        <div class="quantity-control">
-          <button id="modal-decrease">-</button>
-          <input type="number" id="modal-quantity" min="1" value="1">
-          <button id="modal-increase">+</button>
-        </div>
-      </div>
-      <button id="modal-add-to-cart" class="btn">Adicionar ao Carrinho</button>
-    </div>`;
-
-  document.body.appendChild(modal); 
-  modal.style.display = "flex";
-
-  const qtyInput = modal.querySelector("#modal-quantity");
-  const decBtn = modal.querySelector("#modal-decrease");
-  const incBtn = modal.querySelector("#modal-increase");
-
-  setupQuantityControls(qtyInput, decBtn, incBtn, isWholesale);
-
-  modal.querySelectorAll(".modal-size-option").forEach(b => b.addEventListener("click", () => {
-    modal.querySelectorAll(".modal-size-option").forEach(opt => opt.classList.remove("selected")); 
-    b.classList.add("selected");
-  }));
-
-  modal.querySelector(".modal-close-button").addEventListener("click", () => modal.remove());
-
-  modal.querySelector("#modal-add-to-cart").addEventListener("click", () => {
-    const selSizeBtn = modal.querySelector(".modal-size-option.selected");
-    if (!selSizeBtn) { 
-      cart.showMessage("Por favor, selecione um tamanho."); 
-      return; 
+        slides[index].classList.add('active');
+        dots[index].classList.add('active');
     }
 
-    handleAddToCartInteraction(qtyInput, productId, productName, baseProductPrice, productImage, selSizeBtn.getAttribute("data-size"));
-    modal.remove();
-  });
-}
+    function nextSlide() {
+        slideIndex++;
+        if (slideIndex >= slides.length) {
+            slideIndex = 0;
+        }
+        showSlide(slideIndex);
+    }
 
-// Resto das funções mantém igual...
-// (setupQuantityControls, handleAddToCartInteraction, initProductPage, etc.)
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            slideIndex = index;
+            showSlide(slideIndex);
+        });
+    });
+
+    setInterval(nextSlide, 5000);
+
+    // Carrinho
+    const cartButton = document.querySelector('.cart-button');
+    const cart = document.querySelector('.cart');
+    const cartCloseButton = document.querySelector('.cart-close');
+    const continueShoppingButton = document.querySelector('.continue-shopping');
+    const checkoutButton = document.querySelector('.checkout-button');
+    const cartItemsContainer = document.querySelector('.cart-items');
+    const cartTotalValue = document.querySelector('.cart-total-value');
+    let cartItems = [];
+
+    cartButton.addEventListener('click', () => {
+        cart.classList.add('active');
+    });
+
+    cartCloseButton.addEventListener('click', () => {
+        cart.classList.remove('active');
+    });
+
+    continueShoppingButton.addEventListener('click', () => {
+        cart.classList.remove('active');
+    });
+
+    function updateCartTotal() {
+        let total = 0;
+        cartItems.forEach(item => {
+            total += item.price * item.quantity;
+        });
+        cartTotalValue.textContent = `R$ ${total.toFixed(2)}`;
+    }
+
+    function displayCartItem(item) {
+        const cartItemDiv = document.createElement('div');
+        cartItemDiv.classList.add('cart-item');
+        cartItemDiv.innerHTML = `
+            <img src="${item.image}" alt="${item.name}">
+            <div class="cart-item-details">
+                <h4>${item.name}</h4>
+                <p>Tamanho: ${item.size}</p>
+                <p>Quantidade: ${item.quantity}</p>
+                <p>R$ ${(item.price * item.quantity).toFixed(2)}</p>
+            </div>
+            <button class="btn btn-remove" data-id="${item.id}">Remover</button>
+        `;
+        cartItemsContainer.appendChild(cartItemDiv);
+
+        const removeButton = cartItemDiv.querySelector('.btn-remove');
+        removeButton.addEventListener('click', () => {
+            cartItems = cartItems.filter(cartItem => cartItem.id !== item.id);
+            cartItemDiv.remove();
+            updateCartTotal();
+        });
+    }
+
+    function updateCartDisplay() {
+        cartItemsContainer.innerHTML = '';
+        cartItems.forEach(item => {
+            displayCartItem(item);
+        });
+        updateCartTotal();
+    }
+
+    // Modal de Seleção de Tamanho
+    const sizeModal = document.getElementById('size-modal');
+    const modalProductName = document.getElementById('modal-product-name');
+    const modalProductImage = document.getElementById('modal-product-image');
+    const modalProductPrice = document.getElementById('modal-product-price');
+    const modalProductRef = document.getElementById('modal-product-ref');
+    const sizeSelect = document.getElementById('size-select');
+    const quantityInput = document.getElementById('quantity-input');
+    const confirmAddToCartButton = document.getElementById('confirm-add-to-cart');
+    const cancelModalButton = document.getElementById('cancel-modal');
+    const decreaseQtyButton = document.getElementById('decrease-qty');
+    const increaseQtyButton = document.getElementById('increase-qty');
+    const modalCloseButton = document.querySelector('.modal-close');
+
+    let selectedProductId;
+    let selectedProductName;
+    let selectedProductPrice;
+    let selectedProductImage;
+
+    // Função para abrir o modal
+    function openSizeModal(productId, productName, productPrice, productImage) {
+        selectedProductId = productId;
+        selectedProductName = productName;
+        selectedProductPrice = productPrice;
+        selectedProductImage = productImage;
+
+        modalProductName.textContent = productName;
+        modalProductImage.src = productImage;
+        modalProductPrice.textContent = `Preço: R$ ${productPrice}`;
+        modalProductRef.textContent = `REF: ${productId}`;
+
+        // Limpar e preencher as opções de tamanho (exemplo)
+        sizeSelect.innerHTML = '<option value="">Selecione o tamanho</option>';
+        ['P', 'M', 'G', 'GG'].forEach(size => {
+            const option = document.createElement('option');
+            option.value = size;
+            option.textContent = size;
+            sizeSelect.appendChild(option);
+        });
+
+        quantityInput.value = 1; // Resetar a quantidade
+
+        sizeModal.classList.add('active');
+    }
+
+    // Evento para fechar o modal
+    function closeSizeModal() {
+        sizeModal.classList.remove('active');
+    }
+
+    // Evento para adicionar ao carrinho após a seleção
+    confirmAddToCartButton.addEventListener('click', () => {
+        const selectedSize = sizeSelect.value;
+        const quantity = parseInt(quantityInput.value);
+
+        if (!selectedSize) {
+            alert('Por favor, selecione um tamanho.');
+            return;
+        }
+
+        if (isNaN(quantity) || quantity <= 0) {
+            alert('Por favor, insira uma quantidade válida.');
+            return;
+        }
+
+        const newItem = {
+            id: selectedProductId + '-' + selectedSize, // ID único
+            name: selectedProductName,
+            price: selectedProductPrice,
+            image: selectedProductImage,
+            size: selectedSize,
+            quantity: quantity
+        };
+
+        cartItems.push(newItem);
+        updateCartDisplay();
+        closeSizeModal();
+    });
+
+    // Eventos dos botões de controle de quantidade
+    decreaseQtyButton.addEventListener('click', () => {
+        let qty = parseInt(quantityInput.value);
+        if (qty > 1) {
+            quantityInput.value = qty - 1;
+        }
+    });
+
+    increaseQtyButton.addEventListener('click', () => {
+        let qty = parseInt(quantityInput.value);
+        quantityInput.value = qty + 1;
+    });
+
+    // Evento para fechar o modal ao clicar no "x"
+    modalCloseButton.addEventListener('click', closeSizeModal);
+
+    // Evento para cancelar o modal
+    cancelModalButton.addEventListener('click', closeSizeModal);
+
+    // Adicionar produtos ao carrinho
+    document.querySelectorAll('.add-to-cart').forEach(button => {
+        button.addEventListener('click', () => {
+            const productId = button.dataset.id;
+            const productName = button.dataset.name;
+            const productPrice = parseFloat(button.dataset.price);
+            const productImage = button.dataset.image;
+
+            openSizeModal(productId, productName, productPrice, productImage);
+        });
+    });
+
+    // PagSeguro Checkout (simulação)
+    checkoutButton.addEventListener('click', () => {
+        alert('Checkout simulado. Implemente a lógica real do PagSeguro aqui.');
+    });
+});
