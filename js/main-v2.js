@@ -1,12 +1,13 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Defina o cart no topo, para ser global dentro deste escopo
+    let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+
     // Função utilitária para abrir o modal de seleção
     function openSizeModal(product) {
-        // Preenche informações do produto no modal
         document.getElementById('modal-product-name').textContent = product.name;
         document.getElementById('modal-product-image').src = product.image;
         document.getElementById('modal-product-price').textContent = `Preço: R$ ${product.price}`;
         document.getElementById('modal-product-ref').textContent = `REF: ${product.id}`;
-        // Preenche tamanhos
         const sizeSelect = document.getElementById('size-select');
         sizeSelect.innerHTML = '<option value="">Selecione o tamanho</option>';
         (product.sizes || ['P','M','G','GG']).forEach(size => {
@@ -16,7 +17,6 @@ document.addEventListener('DOMContentLoaded', function() {
             sizeSelect.appendChild(opt);
         });
         document.getElementById('quantity-input').value = 1;
-        // Salva produto selecionado
         sizeModal.dataset.productId = product.id;
         sizeModal.dataset.productName = product.name;
         sizeModal.dataset.productPrice = product.price;
@@ -24,7 +24,6 @@ document.addEventListener('DOMContentLoaded', function() {
         sizeModal.classList.add('active');
     }
 
-    // Fecha o modal
     function closeSizeModal() {
         sizeModal.classList.remove('active');
         delete sizeModal.dataset.productId;
@@ -33,7 +32,6 @@ document.addEventListener('DOMContentLoaded', function() {
         delete sizeModal.dataset.productImage;
     }
 
-    // Adiciona item ao carrinho
     function addToCart(product, size, quantity) {
         if (!size) {
             alert('Informe o tamanho.');
@@ -43,8 +41,6 @@ document.addEventListener('DOMContentLoaded', function() {
             alert('Informe a quantidade.');
             return;
         }
-        // Simples: salva no localStorage (pode adaptar para seu sistema)
-        const cart = JSON.parse(localStorage.getItem('cart') || '[]');
         const id = `${product.id}-${size}`;
         const existing = cart.find(item => item.id === id);
         if (existing) {
@@ -65,14 +61,13 @@ document.addEventListener('DOMContentLoaded', function() {
         alert('Produto adicionado ao carrinho!');
     }
 
-    // Atualiza o contador do carrinho
     function updateCartCount() {
-        const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+        // Atualize a variável cart com o que está no localStorage
+        cart = JSON.parse(localStorage.getItem('cart') || '[]');
         const count = cart.reduce((sum, item) => sum + item.quantity, 0);
         document.querySelector('.cart-count').textContent = count;
     }
 
-    // Eventos do modal
     const sizeModal = document.getElementById('size-modal');
     document.getElementById('confirm-add-to-cart').onclick = function() {
         const size = document.getElementById('size-select').value;
@@ -96,7 +91,6 @@ document.addEventListener('DOMContentLoaded', function() {
         input.value = parseInt(input.value, 10) + 1;
     };
 
-    // Função para extrair dados do botão
     function getProductFromButton(btn) {
         return {
             id: btn.dataset.id,
@@ -107,7 +101,6 @@ document.addEventListener('DOMContentLoaded', function() {
         };
     }
 
-    // Ativa todos os botões "Adicionar ao Carrinho" da home
     document.querySelectorAll('.add-to-cart').forEach(btn => {
         btn.onclick = function(e) {
             e.preventDefault();
@@ -115,8 +108,6 @@ document.addEventListener('DOMContentLoaded', function() {
         };
     });
 
-    // Ativa botões "Adicionar ao Pedido" e "Comprar Agora" na página de detalhes
-    // (ajuste os seletores conforme seu HTML)
     document.querySelectorAll('.add-to-order, .buy-now').forEach(btn => {
         btn.onclick = function(e) {
             e.preventDefault();
@@ -124,6 +115,5 @@ document.addEventListener('DOMContentLoaded', function() {
         };
     });
 
-    // Atualiza contador ao carregar
     updateCartCount();
 });
