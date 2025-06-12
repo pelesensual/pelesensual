@@ -1,0 +1,404 @@
+html_content = '''<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../images/logos/PS-Logo_05.png" type="image/png">
+    <title>Produto - Pele Sensual Moda Íntima</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/header-decoration.css">
+    <link rel="stylesheet" href="../css/mode-toggle.css">
+    <link rel="stylesheet" href="../css/modal-corrections.css">
+</head>
+<body>
+    <!-- Botão de Alternância Varejo/Atacado -->
+    <div class="mode-toggle-container">
+        <div class="mode-toggle">
+            <button id="retail-mode" class="active">Varejo</button>
+            <button id="wholesale-mode">Atacado</button>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="../images/logos/PS-Logo_05.png" alt="Pele Sensual" class="main-logo">
+            </div>
+            <p class="slogan">Conforto, leveza e qualidade</p>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Início</a></li>
+                    <li><a href="../index.html#produtos-adulto">Adulto</a></li>
+                    <li><a href="../index.html#produtos-infantil">Infantil</a></li>
+                    <li><a href="embalagens.html">Embalagens</a></li>
+                    <li><a href="../index.html#contato">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Produto Detail -->
+    <section class="product-detail">
+        <div class="container">
+            <div class="product-container">
+                <div class="product-images">
+                    <img id="product-main-image" src="../images/logos/PS-Logo_05.png" alt="Produto" class="product-main-image">
+                    <div class="product-thumbnails">
+                        <!-- Thumbnails serão carregadas dinamicamente -->
+                    </div>
+                </div>
+
+                <div class="product-info">
+                    <h1 id="product-name">Nome do Produto</h1>
+                    <p id="product-price" class="price" data-price="0">R$ 0,00</p>
+                    <p id="product-material" class="material">Material: </p>
+                    <p id="product-description" class="description">Descrição do produto...</p>
+                    <p id="product-ref" class="ref">REF: </p>
+
+                    <div class="size-selector">
+                        <h3>Tamanho:</h3>
+                        <div id="size-options" class="size-options">
+                            <!-- Opções de tamanho serão carregadas dinamicamente -->
+                        </div>
+                    </div>
+
+                    <div class="quantity-selector">
+                        <h3>Quantidade:</h3>
+                        <div class="quantity-control">
+                            <button id="decrease-quantity" type="button">-</button>
+                            <input id="product-quantity" type="number" min="1" value="1">
+                            <button id="increase-quantity" type="button">+</button>
+                        </div>
+                    </div>
+
+                    <div class="product-actions">
+                        <button id="add-to-cart-btn" class="btn add-to-cart add-to-order" data-id="" data-name="" data-price="" data-image="">Adicionar ao Carrinho</button>
+                        <button id="buy-now-btn" class="btn buy-now add-to-order" data-id="" data-name="" data-price="" data-image="">Comprar Agora</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal de Seleção de Tamanho -->
+    <div id="size-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-product-name">Selecionar Tamanho</h3>
+                <span class="modal-close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="product-info">
+                    <img id="modal-product-image" src="" alt="">
+                    <div class="product-details">
+                        <p id="modal-product-price"></p>
+                        <p id="modal-product-ref"></p>
+                    </div>
+                </div>
+                <div class="size-selection">
+                    <label for="size-select">Tamanho:</label>
+                    <select id="size-select">
+                        <option value="">Selecione o tamanho</option>
+                    </select>
+                </div>
+                <div class="quantity-selection">
+                    <label for="quantity-input">Quantidade:</label>
+                    <div class="quantity-controls">
+                        <button type="button" class="quantity-btn" id="decrease-qty">-</button>
+                        <input type="number" id="quantity-input" value="1" min="1" max="99">
+                        <button type="button" class="quantity-btn" id="increase-qty">+</button>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="confirm-add-to-cart" class="btn btn-primary">Adicionar ao Carrinho</button>
+                <button id="cancel-modal" class="btn btn-secondary">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Carrinho -->
+    <div class="cart">
+        <div class="cart-header">
+            <h3>Seu Carrinho</h3>
+            <button class="cart-close">&times;</button>
+        </div>
+        <div class="cart-items">
+            <!-- Itens do carrinho serão adicionados dinamicamente via JavaScript -->
+        </div>
+        <div class="cart-total">
+            <span>Total:</span>
+            <span class="cart-total-value">R$ 0,00</span>
+        </div>
+        <div class="cart-buttons">
+            <button class="btn checkout-button">Finalizar Compra</button>
+            <button class="btn btn-secondary continue-shopping">Continuar Comprando</button>
+        </div>
+    </div>
+
+    <!-- Botão flutuante do carrinho -->
+    <div class="cart-button">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-count">0</span>
+    </div>
+
+    <!-- Botão WhatsApp -->
+    <div class="whatsapp-button">
+        <a href="https://wa.me/5585999436548" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Pele Sensual</h3>
+                    <p>Moda íntima com conforto, leveza e qualidade.</p>
+                    <p><i class="fas fa-phone"></i> (85) 99943-6548</p>
+                    <p><i class="fas fa-envelope"></i> pelesensualmodaintima@gmail.com</p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/pelesensual?igsh=bXU3a2Z6NmVwbzhz" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/5585999436548" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Categorias</h3>
+                    <ul>
+                        <li><a href="../index.html#produtos-adulto">Moda Íntima Adulto</a></li>
+                        <li><a href="../index.html#produtos-infantil">Moda Íntima Infantil</a></li>
+                        <li><a href="../index.html#embalagens">Embalagens e Kits</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Informações</h3>
+                    <ul>
+                        <li><a href="../index.html#sobre">Sobre Nós</a></li>
+                        <li><a href="../index.html#contato">Contato</a></li>
+                        <li><a href="#">Política de Privacidade</a></li>
+                        <li><a href="#">Termos e Condições</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2025 Pele Sensual Moda Íntima. Todos os direitos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../js/main-v2.js"></script>
+    <script src="../js/mode-toggle.js"></script>
+    <script src="../js/image-zoom.js"></script>
+
+    <!-- Script para carregar dados do produto -->
+    <script>
+        // Base de dados dos produtos
+        const productsData = {
+            '016': {
+                id: '016',
+                name: 'Calça Microfibra',
+                price: 4.70,
+                material: 'Microfibra',
+                description: 'Calça confortável em microfibra, ideal para o dia a dia. Tecido macio e respirável.',
+                sizes: ['P', 'M', 'G', 'GG'],
+                images: ['../images/calca_microfibra_frente_1.png'],
+                ref: '016'
+            },
+            '012': {
+                id: '012',
+                name: 'Calça Modal',
+                price: 5.20,
+                material: 'Modal',
+                description: 'Calça em modal, tecido natural e super macio. Conforto garantido.',
+                sizes: ['P', 'M', 'G', 'GG'],
+                images: ['../images/calcola_modal_frente_1.png'],
+                ref: '012'
+            },
+            '013': {
+                id: '013',
+                name: 'Pala Cotton',
+                price: 6.50,
+                material: 'Cotton (algodão) Amaciado - Fio 40',
+                description: 'Calcinha com pala em cotton amaciado, máximo conforto e durabilidade.',
+                sizes: ['P', 'M', 'G', 'GG'],
+                images: ['../images/pala_cotton_frente_1.png'],
+                ref: '013'
+            },
+            '014': {
+                id: '014',
+                name: 'Tanga Lari',
+                price: 6.00,
+                material: 'Cotton',
+                description: 'Tanga em cotton, design moderno e confortável.',
+                sizes: ['M', 'G', 'GG'],
+                images: ['../images/tanga_lari_frente_1.png'],
+                ref: '014'
+            },
+            '050': {
+                id: '050',
+                name: 'Fio Pala Dupla',
+                price: 7.00,
+                material: 'Microfibra',
+                description: 'Fio dental com pala dupla em microfibra, elegante e confortável.',
+                sizes: ['P', 'M', 'G', 'GG'],
+                images: ['../images/fio_pala_dupla_050.png'],
+                ref: '050'
+            },
+            '023': {
+                id: '023',
+                name: 'Calça Plus',
+                price: 8.00,
+                material: 'Microfibra',
+                description: 'Calça especial para tamanhos plus size, conforto e qualidade.',
+                sizes: ['Plus Size'],
+                images: ['../images/calca_plus_023.png'],
+                ref: '023'
+            },
+            '052': {
+                id: '052',
+                name: 'Fio Largo',
+                price: 7.50,
+                material: 'Microfibra',
+                description: 'Fio dental com lateral mais larga, conforto e estilo.',
+                sizes: ['M', 'G', 'GG'],
+                images: ['../images/fio_largo_frente_1.png'],
+                ref: '052'
+            },
+            '1020': {
+                id: '1020',
+                name: 'Calça Lateral Dupla',
+                price: 6.50,
+                material: 'Microfibra',
+                description: 'Calça com lateral dupla em microfibra, design diferenciado.',
+                sizes: ['P', 'M', 'G', 'GG'],
+                images: ['../images/calca_lateral_dupla_1020.png'],
+                ref: '1020'
+            },
+            '026': {
+                id: '026',
+                name: 'Box Feminina',
+                price: 7.00,
+                material: 'Microfibra',
+                description: 'Box feminina em microfibra, cores sortidas. Ideal para revenda.',
+                sizes: ['P', 'M', 'G', 'GG'],
+                images: ['../images/box_feminina/box_feminina_frente_1.png'],
+                ref: '026'
+            },
+            '002': {
+                id: '002',
+                name: 'Infantil Trix',
+                price: 4.20,
+                material: 'Modal Poá',
+                description: 'Calcinha infantil em modal com estampa poá, conforto para as crianças.',
+                sizes: ['P', 'M', 'G', 'GG'],
+                images: ['../images/infantil_trix_frente_1.png'],
+                ref: '002'
+            }
+        };
+
+        // Função para obter parâmetros da URL
+        function getUrlParameter(name) {
+            name = name.replace(/[\\[]/, '\\\\[').replace(/[\\]]/, '\\\\]');
+            const regex = new RegExp('[\\\\?&]' + name + '=([^&#]*)');
+            const results = regex.exec(location.search);
+            return results === null ? '' : decodeURIComponent(results[1].replace(/\\+/g, ' '));
+        }
+
+        // Função para carregar detalhes do produto
+        function loadProductDetails() {
+            const productId = getUrlParameter('id');
+            const product = productsData[productId];
+
+            if (!product) {
+                // Produto não encontrado, redirecionar ou mostrar erro
+                document.getElementById('product-name').textContent = 'Produto não encontrado';
+                return;
+            }
+
+            // Preencher informações do produto
+            document.getElementById('product-name').textContent = product.name;
+            document.getElementById('product-price').textContent = `R$ ${product.price.toFixed(2)}`;
+            document.getElementById('product-price').dataset.price = product.price;
+            document.getElementById('product-material').textContent = `Material: ${product.material}`;
+            document.getElementById('product-description').textContent = product.description;
+            document.getElementById('product-ref').textContent = `REF: ${product.ref}`;
+
+            // Atualizar imagem principal
+            const mainImage = document.getElementById('product-main-image');
+            mainImage.src = product.images[0];
+            mainImage.alt = product.name;
+
+            // Preencher opções de tamanho
+            const sizeOptions = document.getElementById('size-options');
+            sizeOptions.innerHTML = '';
+            product.sizes.forEach(size => {
+                const sizeButton = document.createElement('button');
+                sizeButton.type = 'button';
+                sizeButton.className = 'size-option';
+                sizeButton.textContent = size;
+                sizeButton.dataset.size = size;
+                sizeButton.addEventListener('click', function() {
+                    // Remove seleção anterior
+                    document.querySelectorAll('.size-option').forEach(btn => btn.classList.remove('selected'));
+                    // Adiciona seleção atual
+                    this.classList.add('selected');
+                });
+                sizeOptions.appendChild(sizeButton);
+            });
+
+            // Atualizar data-attributes dos botões
+            const addToCartBtn = document.getElementById('add-to-cart-btn');
+            const buyNowBtn = document.getElementById('buy-now-btn');
+
+            [addToCartBtn, buyNowBtn].forEach(btn => {
+                btn.dataset.id = product.id;
+                btn.dataset.name = product.name;
+                btn.dataset.price = product.price;
+                btn.dataset.image = product.images[0];
+            });
+
+            // Controles de quantidade
+            document.getElementById('decrease-quantity').addEventListener('click', function() {
+                const quantityInput = document.getElementById('product-quantity');
+                if (parseInt(quantityInput.value) > 1) {
+                    quantityInput.value = parseInt(quantityInput.value) - 1;
+                }
+            });
+
+            document.getElementById('increase-quantity').addEventListener('click', function() {
+                const quantityInput = document.getElementById('product-quantity');
+                quantityInput.value = parseInt(quantityInput.value) + 1;
+            });
+        }
+
+        // Carregar detalhes do produto quando a página carregar
+        document.addEventListener('DOMContentLoaded', function() {
+            loadProductDetails();
+        });
+    </script>
+</body>
+</html>'''
+
+# Salvar o arquivo
+with open('produto-corrigido.html', 'w', encoding='utf-8') as f:
+    f.write(html_content)
+
+print("✅ Arquivo produto.html corrigido criado com sucesso!")
+print("\n🔧 Principais correções aplicadas:")
+print("• Adicionado link para css/modal-corrections.css")
+print("• Adicionados IDs únicos para todos os elementos")
+print("• Botões com classes add-to-order para funcionar com o JavaScript")
+print("• Data-attributes completos (data-id, data-name, data-price, data-image)")
+print("• Modal de seleção de tamanho incluído")
+print("• Base de dados dos produtos integrada")
+print("• Função loadProductDetails() completa")
+print("• Controles de quantidade funcionais")
+print("• Seleção de tamanho visual")
+print("• Footer atualizado com informações corretas")
+print("• Botão WhatsApp adicionado")
+print("• Estrutura otimizada para funcionar com main-v2.js")
