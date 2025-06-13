@@ -1,89 +1,194 @@
-/* Estilos para o botão de alternância Varejo/Atacado */
-.mode-toggle-container {
-    background-color: #fce4ec; /* Rosa claro */
-    padding: 8px 0;
-    text-align: center;
-    border-bottom: 1px solid #f8bbd0; /* Rosa mais escuro */
-}
+// Modal Toggle System
+const ModalToggle = {
+    // Configurações
+    config: {
+        modalClass: 'image-modal',
+        activeClass: 'active',
+        modalOpenClass: 'modal-open',
+        zoomIconClass: 'zoom-icon',
+        productImageClass: 'product-image'
+    },
 
-.mode-toggle {
-    display: inline-flex;
-    background-color: white;
-    border-radius: 20px;
-    overflow: hidden;
-    border: 1px solid #ff80ab; /* Rosa principal */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
+    // Estado
+    state: {
+        currentModal: null,
+        isAnimating: false
+    },
 
-.mode-toggle button {
-    background-color: transparent;
-    border: none;
-    padding: 8px 20px;
-    cursor: pointer;
-    font-weight: 500;
-    color: #ff80ab; /* Rosa principal */
-    transition: all 0.3s ease;
-    font-size: 0.9rem;
-}
+    // Inicialização
+    init() {
+        this.setupImageZoom();
+        this.setupEventListeners();
+    },
 
-.mode-toggle button.active {
-    background-color: #ff80ab; /* Rosa principal */
-    color: white;
-}
+    // Configurar zoom de imagem
+    setupImageZoom() {
+        const productImages = document.querySelectorAll(`.${this.config.productImageClass}`);
+        
+        productImages.forEach(image => {
+            // Criar container para a imagem se necessário
+            this.setupImageContainer(image);
+            
+            // Adicionar ícone de zoom
+            this.addZoomIcon(image);
+            
+            // Adicionar eventos
+            this.addImageEvents(image);
+        });
+    },
 
-.mode-toggle button:not(.active):hover {
-    background-color: #fff0f6; /* Rosa muito claro */
-}
+    // Configurar container da imagem
+    setupImageContainer(image) {
+        if (!image.parentElement.classList.contains('product-image-container')) {
+            const container = document.createElement('div');
+            container.className = 'product-image-container';
+            image.parentNode.insertBefore(container, image);
+            container.appendChild(image);
+        }
+    },
 
-/* Ajustes para posicionar acima do header */
-body {
-    padding-top: 40px; /* Espaço para o toggle */
-    position: relative;
-}
+    // Adicionar ícone de zoom
+    addZoomIcon(image) {
+        if (!image.parentElement.querySelector(`.${this.config.zoomIconClass}`)) {
+            const zoomIcon = document.createElement('div');
+            zoomIcon.className = this.config.zoomIconClass;
+            zoomIcon.innerHTML = '<i class="fas fa-search-plus"></i>';
+            image.parentElement.appendChild(zoomIcon);
+        }
+    },
 
-.mode-toggle-container {
-    position: fixed; /* Fixar no topo */
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1100; /* Acima do header */
-}
+    // Adicionar eventos à imagem
+    addImageEvents(image) {
+        const container = image.parentElement;
+        const zoomIcon = container.querySelector(`.${this.config.zoomIconClass}`);
 
-.header-decoration {
-    margin-top: 40px; /* Empurrar o header para baixo */
-}
+        // Evento para o ícone de zoom
+        zoomIcon.addEventListener('click', (e) => {
+            e.stopPropagation();
+            this.openImageModal(image);
+        });
 
-/* Ajuste para o botão do carrinho não sobrepor o toggle */
-.cart-button {
-    z-index: 1050; /* Abaixo do toggle, mas acima do resto */
-}
+        // Evento para a imagem
+        image.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (!e.target.closest('.add-to-cart')) {
+                this.openImageModal(image);
+            }
+        });
+    },
 
-/* Estilos para indicar modo atacado */
-body.wholesale-mode .product-card .price::after,
-body.wholesale-mode .product-info .price::after {
-    content: " (Atacado)";
-    font-size: 0.8em;
-    color: #666;
-    font-weight: normal;
-}
+    // Abrir modal de imagem
+    openImageModal(image) {
+        if (this.state.isAnimating) return;
 
-body.wholesale-mode .quantity-control input {
-    width: 60px; /* Mais espaço para números maiores */
-}
+        const modal = document.querySelector(`.${this.config.modalClass}`);
+        if (!modal) return;
 
-/* Mensagem de pedido mínimo */
-.min-order-message {
-    display: none; /* Oculto por padrão */
-    background-color: #fff3cd; /* Amarelo alerta */
-    color: #856404;
-    padding: 10px 15px;
-    margin-top: 15px;
-    border: 1px solid #ffeeba;
-    border-radius: 4px;
-    text-align: center;
-}
+        this.state.isAnimating = true;
+        this.state.currentModal = modal;
 
-body.wholesale-mode .cart .min-order-message {
-    display: block; /* Visível no carrinho em modo atacado */
-}
+        // Preparar imagens para o modal
+        const productId = this.getProductId(image);
+        const images = this.getProductImages(productId, image.src);
+        
+        this.setupModalContent(modal, images);
+        
+        // Abrir modal
+        document.body.classList.add(this.config.modalOpenClass);
+        modal.classList.add(this.config.activeClass);
 
+        setTimeout(() => {
+            this.state.isAnimating = false;
+        }, 300);
+    },
+
+    // Configurar conteúdo do modal
+    setupModalContent(modal, images) {
+        const mainImage = modal.querySelector('.modal-main-image');
+        const thumbnailsContainer = modal.querySelector('.modal-thumbnails');
+
+        // Configurar imagem principal
+        mainImage.src = images[0];
+
+        // Configurar miniaturas
+        thumbnailsContainer.innerHTML = images.map((src, index) => `
+            <div class="modal-thumbnail ${index === 0 ? 'active' : ''}" data-index="${index}">
+                <img src="${src}" alt="Miniatura ${index + 1}">
+            </div>
+        `).join('');
+
+        // Adicionar eventos às miniaturas
+        this.setupThumbnailEvents(modal);
+    },
+
+    // Configurar eventos das miniaturas
+    setupThumbnailEvents(modal) {
+        const thumbnails = modal.querySelectorAll('.modal-thumbnail');
+        const mainImage = modal.querySelector('.modal-main-image');
+
+        thumbnails.forEach(thumbnail => {
+            thumbnail.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const index = thumbnail.dataset.index;
+                mainImage.src = thumbnail.querySelector('img').src;
+                
+                thumbnails.forEach(t => t.classList.remove('active'));
+                thumbnail.classList.add('active');
+            });
+        });
+    },
+
+    // Obter ID do produto
+    getProductId(image) {
+        const productCard = image.closest('.product-card');
+        if (productCard) {
+            const addToCartButton = productCard.querySelector('.add-to-cart');
+            return addToCartButton ? addToCartButton.dataset.id : null;
+        }
+        return null;
+    },
+
+    // Obter imagens do produto
+    getProductImages(productId, defaultImage) {
+        // Se não houver ID do produto, retornar apenas a imagem atual
+        if (!productId) return [defaultImage];
+
+        // Aqui você pode implementar a lógica para buscar todas as imagens do produto
+        // Por enquanto, retornamos apenas a imagem atual
+        return [defaultImage];
+    },
+
+    // Configurar event listeners globais
+    setupEventListeners() {
+        document.addEventListener('click', (e) => {
+            if (this.state.currentModal && !e.target.closest('.modal-content')) {
+                this.closeCurrentModal();
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && this.state.currentModal) {
+                this.closeCurrentModal();
+            }
+        });
+    },
+
+    // Fechar modal atual
+    closeCurrentModal() {
+        if (!this.state.currentModal || this.state.isAnimating) return;
+
+        this.state.isAnimating = true;
+        this.state.currentModal.classList.remove(this.config.activeClass);
+        document.body.classList.remove(this.config.modalOpenClass);
+
+        setTimeout(() => {
+            this.state.isAnimating = false;
+            this.state.currentModal = null;
+        }, 300);
+    }
+};
+
+// Inicializar quando o DOM estiver pronto
+document.addEventListener('DOMContentLoaded', () => {
+    ModalToggle.init();
+});
