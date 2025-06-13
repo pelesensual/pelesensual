@@ -54,7 +54,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
                 
                 thumbnail.innerHTML = `<img src="${imgSrc}" alt="Miniatura ${index + 1}">`;
-                thumbnail.addEventListener('click', function() {
+                thumbnail.addEventListener('click', function(event) {
+                    event.stopPropagation(); // Evita propagação para o modal
                     currentImageIndex = index;
                     updateModalImage();
                 });
@@ -204,7 +205,11 @@ document.addEventListener('DOMContentLoaded', function() {
         img.parentElement.appendChild(zoomIcon);
 
         // Adicionar evento de clique na imagem e no ícone
-        function openImageModal() {
+        function openImageModal(event) {
+            // Só abre o modal se o clique não for em um botão dentro do card
+            if (event && event.target.closest('.add-to-cart')) {
+                return; // Não abre o modal se o clique for no botão de adicionar ao carrinho
+            }
             // Determinar o ID do produto
             let productId = null;
             
@@ -238,7 +243,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const prevButton = imageModal.querySelector('.prev-button');
     const nextButton = imageModal.querySelector('.next-button');
     
-    prevButton.addEventListener('click', function() {
+    prevButton.addEventListener('click', function(event) {
+        event.stopPropagation();
         if (currentImageIndex > 0) {
             currentImageIndex--;
         } else {
@@ -247,7 +253,8 @@ document.addEventListener('DOMContentLoaded', function() {
         updateModalImage();
     });
     
-    nextButton.addEventListener('click', function() {
+    nextButton.addEventListener('click', function(event) {
+        event.stopPropagation();
         if (currentImageIndex < productImages.length - 1) {
             currentImageIndex++;
         } else {
@@ -258,7 +265,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Fechar o modal ao clicar no botão de fechar
     const closeButton = imageModal.querySelector('.close-button');
-    closeButton.addEventListener('click', function() {
+    closeButton.addEventListener('click', function(event) {
+        event.stopPropagation();
         imageModal.classList.remove('active');
     });
 
