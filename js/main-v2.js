@@ -57,6 +57,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         localStorage.setItem('cart', JSON.stringify(cart));
         updateCartCount();
+        if (window.cart && typeof window.cart.render === 'function') {
+            window.cart.render();
+        }
         closeSizeModal();
         alert('Produto adicionado ao carrinho!');
     }
