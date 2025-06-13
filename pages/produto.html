@@ -98,8 +98,8 @@
                     </div>
                     
                     <div class="product-actions">
-                        <button class="btn add-to-cart" data-id="016">Adicionar ao Carrinho</button>
-                        <button class="btn btn-secondary" id="buy-now-button">Comprar Agora</button>
+                        <button class="btn add-to-cart" data-id="016" data-name="" data-price="" data-image="">Adicionar ao Carrinho</button>
+                        <button class="btn btn-secondary buy-now add-to-order" id="buy-now-button" data-id="016" data-name="" data-price="" data-image="">Comprar Agora</button>
                     </div>
                 </div>
             </div>
@@ -121,7 +121,7 @@
                         <p class="price" data-price="5.20">R$ 5,20</p>
                         <p class="ref">REF: 012</p>
                         <div class="actions">
-                            <a href="#" class="btn btn-sm add-to-cart" data-id="012">Adicionar ao Carrinho</a>
+                            <a href="#" class="btn btn-sm add-to-cart" data-id="012" data-name="Calça Modal" data-price="5.20" data-image="../images/calca_modal_012.png">Adicionar ao Carrinho</a>
                             <a href="produto.html?id=012" class="btn btn-sm">Ver Detalhes</a>
                         </div>
                     </div>
@@ -137,7 +137,7 @@
                         <p class="price" data-price="6.50">R$ 6,50</p>
                         <p class="ref">REF: 013</p>
                         <div class="actions">
-                            <a href="#" class="btn btn-sm add-to-cart" data-id="013">Adicionar ao Carrinho</a>
+                            <a href="#" class="btn btn-sm add-to-cart" data-id="013" data-name="Pala Cotton" data-price="6.50" data-image="../images/pala_cotton_013.png">Adicionar ao Carrinho</a>
                             <a href="produto.html?id=013" class="btn btn-sm">Ver Detalhes</a>
                         </div>
                     </div>
@@ -153,7 +153,7 @@
                         <p class="price" data-price="7.00">R$ 7,00</p>
                         <p class="ref">REF: 050</p>
                         <div class="actions">
-                            <a href="#" class="btn btn-sm add-to-cart" data-id="050">Adicionar ao Carrinho</a>
+                            <a href="#" class="btn btn-sm add-to-cart" data-id="050" data-name="Fio Pala Dupla" data-price="7.00" data-image="../images/fio_pala_dupla_050.png">Adicionar ao Carrinho</a>
                             <a href="produto.html?id=050" class="btn btn-sm">Ver Detalhes</a>
                         </div>
                     </div>
@@ -420,7 +420,19 @@
                 document.querySelector('.product-info .price').setAttribute('data-price', product.price);
                 
                 // Atualizar o botão de adicionar ao carrinho
-                document.querySelector('.add-to-cart').setAttribute('data-id', productId);
+                const addToCartBtn = document.querySelector('.add-to-cart');
+                addToCartBtn.setAttribute('data-id', productId);
+                addToCartBtn.setAttribute('data-name', product.name);
+                addToCartBtn.setAttribute('data-price', product.price);
+                addToCartBtn.setAttribute('data-image', product.image);
+
+                const buyNowBtn = document.getElementById('buy-now-button');
+                if (buyNowBtn) {
+                    buyNowBtn.setAttribute('data-id', productId);
+                    buyNowBtn.setAttribute('data-name', product.name);
+                    buyNowBtn.setAttribute('data-price', product.price);
+                    buyNowBtn.setAttribute('data-image', product.image);
+                }
                 
                 // Atualizar as opções de tamanho
                 const sizeOptions = document.querySelector('.size-options');
