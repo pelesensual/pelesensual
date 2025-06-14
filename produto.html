@@ -182,25 +182,140 @@
     <!-- Script para carregar dados do produto -->
     <script>
         // Base de dados dos produtos
-        const productsData = {
-            '016': {
-                id: '016',
-                name: 'Calça Microfibra',
-                price: 4.70,
-                material: 'Microfibra',
-                description: 'Calça confortável em microfibra, ideal para o dia a dia. Tecido macio e respirável.',
-                sizes: ['P', 'M', 'G', 'GG'],
-                images: ['../images/calca_microfibra_frente_1.png'],
-                additionalImages: [
-                    '../images/calca_microfibra_frente_2.png',
-                    '../images/calca_microfibra_costas_1.png',
-                    '../images/calca_microfibra_costas_2.png',
-                    '../images/calca_microfibra_016.png'
-                ],
-                ref: '016'
-            },
-            // ... outros produtos ...
-        };
+        // Base de dados dos produtos
+const productsData = {
+    '016': {
+        id: '016',
+        name: 'Calça Microfibra',
+        price: 4.70,
+        material: 'Microfibra',
+        description: 'Calça confortável em microfibra, ideal para o dia a dia. Tecido macio e respirável.',
+        sizes: ['P', 'M', 'G', 'GG'],
+        images: ['../images/calca_microfibra_frente_1.png'],
+        additionalImages: [
+            '../images/calca_microfibra_frente_2.png',
+            '../images/calca_microfibra_costas_1.png'
+        ],
+        ref: '016'
+    },
+    '012': {
+        id: '012',
+        name: 'Calça Modal',
+        price: 5.20,
+        material: 'Modal',
+        description: 'Calça em modal, tecido natural e super macio. Conforto garantido.',
+        sizes: ['P', 'M', 'G', 'GG'],
+        images: ['../images/calcola_modal_frente_1.png'],
+        additionalImages: [
+            '../images/calcola_modal_costas_1.png'
+        ],
+        ref: '012'
+    },
+    '013': {
+        id: '013',
+        name: 'Pala Cotton',
+        price: 6.50,
+        material: 'Cotton (algodão) Amaciado - Fio 40',
+        description: 'Calcinha com pala em cotton amaciado, máximo conforto e durabilidade.',
+        sizes: ['P', 'M', 'G', 'GG'],
+        images: ['../images/pala_cotton_frente_1.png'],
+        additionalImages: [
+            '../images/pala_cotton_costas_1.png'
+        ],
+        ref: '013'
+    },
+    '014': {
+        id: '014',
+        name: 'Tanga Lari',
+        price: 6.00,
+        material: 'Cotton',
+        description: 'Tanga em cotton, design moderno e confortável.',
+        sizes: ['M', 'G', 'GG'],
+        images: ['../images/tanga_lari_frente_1.png'],
+        additionalImages: [
+            '../images/tanga_lari_costas_1.png'
+        ],
+        ref: '014'
+    },
+    '050': {
+        id: '050',
+        name: 'Fio Pala Dupla',
+        price: 7.00,
+        material: 'Microfibra',
+        description: 'Fio dental com pala dupla em microfibra, elegante e confortável.',
+        sizes: ['P', 'M', 'G', 'GG'],
+        images: ['../images/fio_pala_dupla_050.png'],
+        additionalImages: [
+            '../images/fio_pala_dupla_costas_050.png'
+        ],
+        ref: '050'
+    },
+    '023': {
+        id: '023',
+        name: 'Calça Plus',
+        price: 8.00,
+        material: 'Microfibra',
+        description: 'Calça especial para tamanhos plus size, conforto e qualidade.',
+        sizes: ['Plus Size'],
+        images: ['../images/calca_plus_023.png'],
+        additionalImages: [
+            '../images/calca_plus_costas_023.png'
+        ],
+        ref: '023'
+    },
+    '052': {
+        id: '052',
+        name: 'Fio Largo',
+        price: 7.50,
+        material: 'Microfibra',
+        description: 'Fio dental com lateral mais larga, conforto e estilo.',
+        sizes: ['M', 'G', 'GG'],
+        images: ['../images/fio_largo_frente_1.png'],
+        additionalImages: [
+            '../images/fio_largo_costas_1.png'
+        ],
+        ref: '052'
+    },
+    '1020': {
+        id: '1020',
+        name: 'Calça Lateral Dupla',
+        price: 6.50,
+        material: 'Microfibra',
+        description: 'Calça com lateral dupla em microfibra, design diferenciado.',
+        sizes: ['P', 'M', 'G', 'GG'],
+        images: ['../images/calca_lateral_dupla_1020.png'],
+        additionalImages: [
+            '../images/calca_lateral_dupla_costas_1020.png'
+        ],
+        ref: '1020'
+    },
+    '026': {
+        id: '026',
+        name: 'Box Feminina',
+        price: 7.00,
+        material: 'Microfibra',
+        description: 'Box feminina em microfibra, cores sortidas. Ideal para revenda.',
+        sizes: ['P', 'M', 'G', 'GG'],
+        images: ['../images/box_feminina_frente_1.png'],
+        additionalImages: [
+            '../images/box_feminina_costas_1.png'
+        ],
+        ref: '026'
+    },
+    '002': {
+        id: '002',
+        name: 'Infantil Trix',
+        price: 4.20,
+        material: 'Modal Poá',
+        description: 'Calcinha infantil em modal com estampa poá, conforto para as crianças.',
+        sizes: ['P', 'M', 'G', 'GG'],
+        images: ['../images/infantil_trix_frente_1.png'],
+        additionalImages: [
+            '../images/infantil_trix_costas_1.png'
+        ],
+        ref: '002'
+    }
+};
 
         // Função para obter parâmetros da URL
         function getUrlParameter(name) {
