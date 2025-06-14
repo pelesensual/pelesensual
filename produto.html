@@ -135,6 +135,7 @@
             <i class="fab fa-whatsapp"></i>
         </a>
     </div>
+
     <!-- Footer -->
     <footer>
         <div class="container">
@@ -172,8 +173,7 @@
             </div>
         </div>
     </footer>
-
-    <!-- Scripts -->
+<!-- Scripts -->
     <script src="../js/cart.js"></script>
     <script src="../js/image-zoom.js"></script>
     <script src="../js/main-v2.js"></script>
@@ -182,147 +182,48 @@
     <!-- Script para carregar dados do produto -->
     <script>
         // Base de dados dos produtos
-        // Base de dados dos produtos
-const productsData = {
-    '016': {
-        id: '016',
-        name: 'Calça Microfibra',
-        price: 4.70,
-        material: 'Microfibra',
-        description: 'Calça confortável em microfibra, ideal para o dia a dia. Tecido macio e respirável.',
-        sizes: ['P', 'M', 'G', 'GG'],
-        images: ['../images/calca_microfibra_frente_1.png'],
-        additionalImages: [
-            '../images/calca_microfibra_frente_2.png',
-            '../images/calca_microfibra_costas_1.png'
-        ],
-        ref: '016'
-    },
-    '012': {
-        id: '012',
-        name: 'Calça Modal',
-        price: 5.20,
-        material: 'Modal',
-        description: 'Calça em modal, tecido natural e super macio. Conforto garantido.',
-        sizes: ['P', 'M', 'G', 'GG'],
-        images: ['../images/calcola_modal_frente_1.png'],
-        additionalImages: [
-            '../images/calcola_modal_costas_1.png'
-        ],
-        ref: '012'
-    },
-    '013': {
-        id: '013',
-        name: 'Pala Cotton',
-        price: 6.50,
-        material: 'Cotton (algodão) Amaciado - Fio 40',
-        description: 'Calcinha com pala em cotton amaciado, máximo conforto e durabilidade.',
-        sizes: ['P', 'M', 'G', 'GG'],
-        images: ['../images/pala_cotton_frente_1.png'],
-        additionalImages: [
-            '../images/pala_cotton_costas_1.png'
-        ],
-        ref: '013'
-    },
-    '014': {
-        id: '014',
-        name: 'Tanga Lari',
-        price: 6.00,
-        material: 'Cotton',
-        description: 'Tanga em cotton, design moderno e confortável.',
-        sizes: ['M', 'G', 'GG'],
-        images: ['../images/tanga_lari_frente_1.png'],
-        additionalImages: [
-            '../images/tanga_lari_costas_1.png'
-        ],
-        ref: '014'
-    },
-    '050': {
-        id: '050',
-        name: 'Fio Pala Dupla',
-        price: 7.00,
-        material: 'Microfibra',
-        description: 'Fio dental com pala dupla em microfibra, elegante e confortável.',
-        sizes: ['P', 'M', 'G', 'GG'],
-        images: ['../images/fio_pala_dupla_050.png'],
-        additionalImages: [
-            '../images/fio_pala_dupla_costas_050.png'
-        ],
-        ref: '050'
-    },
-    '023': {
-        id: '023',
-        name: 'Calça Plus',
-        price: 8.00,
-        material: 'Microfibra',
-        description: 'Calça especial para tamanhos plus size, conforto e qualidade.',
-        sizes: ['Plus Size'],
-        images: ['../images/calca_plus_023.png'],
-        additionalImages: [
-            '../images/calca_plus_costas_023.png'
-        ],
-        ref: '023'
-    },
-    '052': {
-        id: '052',
-        name: 'Fio Largo',
-        price: 7.50,
-        material: 'Microfibra',
-        description: 'Fio dental com lateral mais larga, conforto e estilo.',
-        sizes: ['M', 'G', 'GG'],
-        images: ['../images/fio_largo_frente_1.png'],
-        additionalImages: [
-            '../images/fio_largo_costas_1.png'
-        ],
-        ref: '052'
-    },
-    '1020': {
-        id: '1020',
-        name: 'Calça Lateral Dupla',
-        price: 6.50,
-        material: 'Microfibra',
-        description: 'Calça com lateral dupla em microfibra, design diferenciado.',
-        sizes: ['P', 'M', 'G', 'GG'],
-        images: ['../images/calca_lateral_dupla_1020.png'],
-        additionalImages: [
-            '../images/calca_lateral_dupla_costas_1020.png'
-        ],
-        ref: '1020'
-    },
-    '026': {
-        id: '026',
-        name: 'Box Feminina',
-        price: 7.00,
-        material: 'Microfibra',
-        description: 'Box feminina em microfibra, cores sortidas. Ideal para revenda.',
-        sizes: ['P', 'M', 'G', 'GG'],
-        images: ['../images/box_feminina_frente_1.png'],
-        additionalImages: [
-            '../images/box_feminina_costas_1.png'
-        ],
-        ref: '026'
-    },
-    '002': {
-        id: '002',
-        name: 'Infantil Trix',
-        price: 4.20,
-        material: 'Modal Poá',
-        description: 'Calcinha infantil em modal com estampa poá, conforto para as crianças.',
-        sizes: ['P', 'M', 'G', 'GG'],
-        images: ['../images/infantil_trix_frente_1.png'],
-        additionalImages: [
-            '../images/infantil_trix_costas_1.png'
-        ],
-        ref: '002'
-    }
-};
+        const productsData = {
+            '016': {
+                id: '016',
+                name: 'Calça Microfibra',
+                price: 4.70,
+                material: 'Microfibra',
+                description: 'Calça confortável em microfibra, ideal para o dia a dia. Tecido macio e respirável.',
+                sizes: ['P', 'M', 'G', 'GG'],
+                images: ['../images/calca_microfibra_frente_1.png'],
+                additionalImages: [
+                    '../images/calca_microfibra_frente_2.png',
+                    '../images/calca_microfibra_costas_1.png'
+                ],
+                ref: '016'
+            },
+            '012': {
+                id: '012',
+                name: 'Calça Modal',
+                price: 5.20,
+                material: 'Modal',
+                description: 'Calça em modal, tecido natural e super macio. Conforto garantido.',
+                sizes: ['P', 'M', 'G', 'GG'],
+                images: ['../images/calcola_modal_frente_1.png'],
+                additionalImages: [
+                    '../images/calcola_modal_costas_1.png'
+                ],
+                ref: '012'
+            }
+            // Adicione mais produtos conforme necessário
+        };
 
-        // Função para obter parâmetros da URL
+        // Função para obter parâmetros da URL com debug
         function getUrlParameter(name) {
-            name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
-            const regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
-            const results = regex.exec(location.search);
-            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+            try {
+                const urlParams = new URLSearchParams(window.location.search);
+                const param = urlParams.get(name);
+                console.log('Buscando parâmetro:', name, 'Valor encontrado:', param);
+                return param;
+            } catch (error) {
+                console.error('Erro ao buscar parâmetro:', error);
+                return null;
+            }
         }
 
         // Função para criar thumbnail
@@ -339,12 +240,11 @@ const productsData = {
             
             thumbnail.addEventListener('click', (e) => {
                 e.stopPropagation();
-                // Atualizar imagem principal
                 const mainImage = document.getElementById('product-main-image');
                 mainImage.src = imgSrc;
-                // Atualizar seleção de thumbnail
                 document.querySelectorAll('.thumbnail').forEach(t => t.classList.remove('active'));
                 thumbnail.classList.add('active');
+                console.log('Thumbnail clicada:', imgSrc); // Debug
             });
 
             return thumbnail;
@@ -371,6 +271,7 @@ const productsData = {
                     }
                     
                     const quantity = parseInt(document.getElementById('product-quantity').value);
+                    console.log('Clique no botão:', btn.className, 'Quantidade:', quantity); // Debug
                     
                     if (btn.classList.contains('add-to-cart')) {
                         cart.addItem(product.id, product.name, product.price, selectedSize.dataset.size, product.images[0], quantity);
@@ -382,13 +283,20 @@ const productsData = {
             });
         }
 
-        // Função para carregar detalhes do produto
+        // Função para carregar detalhes do produto com debug
         function loadProductDetails() {
             const productId = getUrlParameter('id');
+            console.log('ID do produto:', productId); // Debug
+            console.log('Produtos disponíveis:', Object.keys(productsData)); // Debug
+            console.log('URL atual:', window.location.href); // Debug
+            
             const product = productsData[productId];
+            console.log('Produto encontrado:', product); // Debug
 
             if (!product) {
                 document.getElementById('product-name').textContent = 'Produto não encontrado';
+                document.getElementById('product-description').textContent = 'O produto que você está procurando não está disponível ou o ID é inválido.';
+                console.error('Produto não encontrado. ID:', productId);
                 return;
             }
 
@@ -404,6 +312,7 @@ const productsData = {
             const mainImage = document.getElementById('product-main-image');
             mainImage.src = product.images[0];
             mainImage.alt = product.name;
+            console.log('Imagem principal atualizada:', mainImage.src); // Debug
 
             // Carregar todas as imagens do produto
             if (product.additionalImages && product.additionalImages.length > 0) {
@@ -419,6 +328,7 @@ const productsData = {
                     const thumbnail = createThumbnail(imgSrc, index + 1);
                     thumbnailsContainer.appendChild(thumbnail);
                 });
+                console.log('Thumbnails carregadas:', product.additionalImages.length + 1); // Debug
             }
 
             // Preencher opções de tamanho
@@ -434,15 +344,19 @@ const productsData = {
                     e.stopPropagation();
                     document.querySelectorAll('.size-option').forEach(btn => btn.classList.remove('selected'));
                     this.classList.add('selected');
+                    console.log('Tamanho selecionado:', size); // Debug
                 });
                 sizeOptions.appendChild(sizeButton);
             });
+            console.log('Tamanhos carregados:', product.sizes); // Debug
 
             // Configurar botões de ação
             setupActionButtons(product);
+            console.log('Botões de ação configurados'); // Debug
 
             // Configurar controles de quantidade
             setupQuantityControls();
+            console.log('Controles de quantidade configurados'); // Debug
         }
 
         // Função para configurar controles de quantidade
@@ -454,6 +368,7 @@ const productsData = {
                 const currentValue = parseInt(quantityInput.value);
                 if (currentValue > 1) {
                     quantityInput.value = currentValue - 1;
+                    console.log('Quantidade diminuída:', quantityInput.value); // Debug
                 }
             });
 
@@ -461,6 +376,7 @@ const productsData = {
                 e.stopPropagation();
                 const currentValue = parseInt(quantityInput.value);
                 quantityInput.value = currentValue + 1;
+                console.log('Quantidade aumentada:', quantityInput.value); // Debug
             });
 
             quantityInput.addEventListener('change', (e) => {
@@ -468,11 +384,13 @@ const productsData = {
                 if (parseInt(quantityInput.value) < 1) {
                     quantityInput.value = 1;
                 }
+                console.log('Quantidade alterada manualmente:', quantityInput.value); // Debug
             });
         }
 
         // Carregar detalhes do produto quando a página carregar
         document.addEventListener('DOMContentLoaded', function() {
+            console.log('Página carregada, iniciando carregamento do produto...'); // Debug
             loadProductDetails();
         });
     </script>
