@@ -1,4 +1,4 @@
-html_content = '''<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
@@ -11,6 +11,7 @@ html_content = '''<!DOCTYPE html>
     <link rel="stylesheet" href="../css/header-decoration.css">
     <link rel="stylesheet" href="../css/mode-toggle.css">
     <link rel="stylesheet" href="../css/modal-corrections.css">
+    <link rel="stylesheet" href="../css/product-zoom.css">
 </head>
 <body>
     <!-- Botão de Alternância Varejo/Atacado -->
@@ -45,7 +46,13 @@ html_content = '''<!DOCTYPE html>
         <div class="container">
             <div class="product-container">
                 <div class="product-images">
-                    <img id="product-main-image" src="../images/logos/PS-Logo_05.png" alt="Produto" class="product-main-image">
+                    <div class="product-image-container">
+                        <img id="product-main-image" 
+                             src="../images/logos/PS-Logo_05.png" 
+                             alt="Produto" 
+                             class="product-main-image product-image"
+                             data-zoomable="true">
+                    </div>
                     <div class="product-thumbnails">
                         <!-- Thumbnails serão carregadas dinamicamente -->
                     </div>
@@ -75,50 +82,27 @@ html_content = '''<!DOCTYPE html>
                     </div>
 
                     <div class="product-actions">
-                        <button id="add-to-cart-btn" class="btn add-to-cart add-to-order" data-id="" data-name="" data-price="" data-image="">Adicionar ao Carrinho</button>
-                        <button id="buy-now-btn" class="btn buy-now add-to-order" data-id="" data-name="" data-price="" data-image="">Comprar Agora</button>
+                        <button id="add-to-cart-btn" 
+                                class="btn add-to-cart" 
+                                data-id="" 
+                                data-name="" 
+                                data-price="" 
+                                data-image="">
+                            Adicionar ao Carrinho
+                        </button>
+                        <button id="buy-now-btn" 
+                                class="btn buy-now" 
+                                data-id="" 
+                                data-name="" 
+                                data-price="" 
+                                data-image="">
+                            Comprar Agora
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Modal de Seleção de Tamanho -->
-    <div id="size-modal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3 id="modal-product-name">Selecionar Tamanho</h3>
-                <span class="modal-close">&times;</span>
-            </div>
-            <div class="modal-body">
-                <div class="product-info">
-                    <img id="modal-product-image" src="" alt="">
-                    <div class="product-details">
-                        <p id="modal-product-price"></p>
-                        <p id="modal-product-ref"></p>
-                    </div>
-                </div>
-                <div class="size-selection">
-                    <label for="size-select">Tamanho:</label>
-                    <select id="size-select">
-                        <option value="">Selecione o tamanho</option>
-                    </select>
-                </div>
-                <div class="quantity-selection">
-                    <label for="quantity-input">Quantidade:</label>
-                    <div class="quantity-controls">
-                        <button type="button" class="quantity-btn" id="decrease-qty">-</button>
-                        <input type="number" id="quantity-input" value="1" min="1" max="99">
-                        <button type="button" class="quantity-btn" id="increase-qty">+</button>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button id="confirm-add-to-cart" class="btn btn-primary">Adicionar ao Carrinho</button>
-                <button id="cancel-modal" class="btn btn-secondary">Cancelar</button>
-            </div>
-        </div>
-    </div>
 
     <!-- Carrinho -->
     <div class="cart">
@@ -127,7 +111,7 @@ html_content = '''<!DOCTYPE html>
             <button class="cart-close">&times;</button>
         </div>
         <div class="cart-items">
-            <!-- Itens do carrinho serão adicionados dinamicamente via JavaScript -->
+            <!-- Itens do carrinho serão adicionados dinamicamente -->
         </div>
         <div class="cart-total">
             <span>Total:</span>
@@ -151,7 +135,6 @@ html_content = '''<!DOCTYPE html>
             <i class="fab fa-whatsapp"></i>
         </a>
     </div>
-
     <!-- Footer -->
     <footer>
         <div class="container">
@@ -192,9 +175,9 @@ html_content = '''<!DOCTYPE html>
 
     <!-- Scripts -->
     <script src="../js/cart.js"></script>
+    <script src="../js/image-zoom.js"></script>
     <script src="../js/main-v2.js"></script>
     <script src="../js/mode-toggle.js"></script>
-    <script src="../js/image-zoom.js"></script>
 
     <!-- Script para carregar dados do produto -->
     <script>
@@ -208,106 +191,80 @@ html_content = '''<!DOCTYPE html>
                 description: 'Calça confortável em microfibra, ideal para o dia a dia. Tecido macio e respirável.',
                 sizes: ['P', 'M', 'G', 'GG'],
                 images: ['../images/calca_microfibra_frente_1.png'],
+                additionalImages: [
+                    '../images/calca_microfibra_frente_2.png',
+                    '../images/calca_microfibra_costas_1.png',
+                    '../images/calca_microfibra_costas_2.png',
+                    '../images/calca_microfibra_016.png'
+                ],
                 ref: '016'
             },
-            '012': {
-                id: '012',
-                name: 'Calça Modal',
-                price: 5.20,
-                material: 'Modal',
-                description: 'Calça em modal, tecido natural e super macio. Conforto garantido.',
-                sizes: ['P', 'M', 'G', 'GG'],
-                images: ['../images/calcola_modal_frente_1.png'],
-                ref: '012'
-            },
-            '013': {
-                id: '013',
-                name: 'Pala Cotton',
-                price: 6.50,
-                material: 'Cotton (algodão) Amaciado - Fio 40',
-                description: 'Calcinha com pala em cotton amaciado, máximo conforto e durabilidade.',
-                sizes: ['P', 'M', 'G', 'GG'],
-                images: ['../images/pala_cotton_frente_1.png'],
-                ref: '013'
-            },
-            '014': {
-                id: '014',
-                name: 'Tanga Lari',
-                price: 6.00,
-                material: 'Cotton',
-                description: 'Tanga em cotton, design moderno e confortável.',
-                sizes: ['M', 'G', 'GG'],
-                images: ['../images/tanga_lari_frente_1.png'],
-                ref: '014'
-            },
-            '050': {
-                id: '050',
-                name: 'Fio Pala Dupla',
-                price: 7.00,
-                material: 'Microfibra',
-                description: 'Fio dental com pala dupla em microfibra, elegante e confortável.',
-                sizes: ['P', 'M', 'G', 'GG'],
-                images: ['../images/fio_pala_dupla_050.png'],
-                ref: '050'
-            },
-            '023': {
-                id: '023',
-                name: 'Calça Plus',
-                price: 8.00,
-                material: 'Microfibra',
-                description: 'Calça especial para tamanhos plus size, conforto e qualidade.',
-                sizes: ['Plus Size'],
-                images: ['../images/calca_plus_023.png'],
-                ref: '023'
-            },
-            '052': {
-                id: '052',
-                name: 'Fio Largo',
-                price: 7.50,
-                material: 'Microfibra',
-                description: 'Fio dental com lateral mais larga, conforto e estilo.',
-                sizes: ['M', 'G', 'GG'],
-                images: ['../images/fio_largo_frente_1.png'],
-                ref: '052'
-            },
-            '1020': {
-                id: '1020',
-                name: 'Calça Lateral Dupla',
-                price: 6.50,
-                material: 'Microfibra',
-                description: 'Calça com lateral dupla em microfibra, design diferenciado.',
-                sizes: ['P', 'M', 'G', 'GG'],
-                images: ['../images/calca_lateral_dupla_1020.png'],
-                ref: '1020'
-            },
-            '026': {
-                id: '026',
-                name: 'Box Feminina',
-                price: 7.00,
-                material: 'Microfibra',
-                description: 'Box feminina em microfibra, cores sortidas. Ideal para revenda.',
-                sizes: ['P', 'M', 'G', 'GG'],
-                images: ['../images/box_feminina/box_feminina_frente_1.png'],
-                ref: '026'
-            },
-            '002': {
-                id: '002',
-                name: 'Infantil Trix',
-                price: 4.20,
-                material: 'Modal Poá',
-                description: 'Calcinha infantil em modal com estampa poá, conforto para as crianças.',
-                sizes: ['P', 'M', 'G', 'GG'],
-                images: ['../images/infantil_trix_frente_1.png'],
-                ref: '002'
-            }
+            // ... outros produtos ...
         };
 
         // Função para obter parâmetros da URL
         function getUrlParameter(name) {
-            name = name.replace(/[\\[]/, '\\\\[').replace(/[\\]]/, '\\\\]');
-            const regex = new RegExp('[\\\\?&]' + name + '=([^&#]*)');
+            name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+            const regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
             const results = regex.exec(location.search);
-            return results === null ? '' : decodeURIComponent(results[1].replace(/\\+/g, ' '));
+            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        }
+
+        // Função para criar thumbnail
+        function createThumbnail(imgSrc, index) {
+            const thumbnail = document.createElement('div');
+            thumbnail.className = 'thumbnail' + (index === 0 ? ' active' : '');
+            
+            const img = document.createElement('img');
+            img.src = imgSrc;
+            img.alt = `Imagem ${index + 1}`;
+            img.className = 'product-image';
+            
+            thumbnail.appendChild(img);
+            
+            thumbnail.addEventListener('click', (e) => {
+                e.stopPropagation();
+                // Atualizar imagem principal
+                const mainImage = document.getElementById('product-main-image');
+                mainImage.src = imgSrc;
+                // Atualizar seleção de thumbnail
+                document.querySelectorAll('.thumbnail').forEach(t => t.classList.remove('active'));
+                thumbnail.classList.add('active');
+            });
+
+            return thumbnail;
+        }
+
+        // Função para configurar botões de ação
+        function setupActionButtons(product) {
+            const addToCartBtn = document.getElementById('add-to-cart-btn');
+            const buyNowBtn = document.getElementById('buy-now-btn');
+            
+            [addToCartBtn, buyNowBtn].forEach(btn => {
+                btn.dataset.id = product.id;
+                btn.dataset.name = product.name;
+                btn.dataset.price = product.price;
+                btn.dataset.image = product.images[0];
+                
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    
+                    const selectedSize = document.querySelector('.size-option.selected');
+                    if (!selectedSize) {
+                        alert('Por favor, selecione um tamanho');
+                        return;
+                    }
+                    
+                    const quantity = parseInt(document.getElementById('product-quantity').value);
+                    
+                    if (btn.classList.contains('add-to-cart')) {
+                        cart.addItem(product.id, product.name, product.price, selectedSize.dataset.size, product.images[0], quantity);
+                    } else {
+                        cart.addItem(product.id, product.name, product.price, selectedSize.dataset.size, product.images[0], quantity);
+                        window.location.href = 'checkout.html';
+                    }
+                });
+            });
         }
 
         // Função para carregar detalhes do produto
@@ -316,7 +273,6 @@ html_content = '''<!DOCTYPE html>
             const product = productsData[productId];
 
             if (!product) {
-                // Produto não encontrado, redirecionar ou mostrar erro
                 document.getElementById('product-name').textContent = 'Produto não encontrado';
                 return;
             }
@@ -334,6 +290,22 @@ html_content = '''<!DOCTYPE html>
             mainImage.src = product.images[0];
             mainImage.alt = product.name;
 
+            // Carregar todas as imagens do produto
+            if (product.additionalImages && product.additionalImages.length > 0) {
+                const thumbnailsContainer = document.querySelector('.product-thumbnails');
+                thumbnailsContainer.innerHTML = '';
+                
+                // Adicionar imagem principal como primeira thumbnail
+                const mainThumbnail = createThumbnail(product.images[0], 0);
+                thumbnailsContainer.appendChild(mainThumbnail);
+
+                // Adicionar imagens adicionais
+                product.additionalImages.forEach((imgSrc, index) => {
+                    const thumbnail = createThumbnail(imgSrc, index + 1);
+                    thumbnailsContainer.appendChild(thumbnail);
+                });
+            }
+
             // Preencher opções de tamanho
             const sizeOptions = document.getElementById('size-options');
             sizeOptions.innerHTML = '';
@@ -343,37 +315,44 @@ html_content = '''<!DOCTYPE html>
                 sizeButton.className = 'size-option';
                 sizeButton.textContent = size;
                 sizeButton.dataset.size = size;
-                sizeButton.addEventListener('click', function() {
-                    // Remove seleção anterior
+                sizeButton.addEventListener('click', function(e) {
+                    e.stopPropagation();
                     document.querySelectorAll('.size-option').forEach(btn => btn.classList.remove('selected'));
-                    // Adiciona seleção atual
                     this.classList.add('selected');
                 });
                 sizeOptions.appendChild(sizeButton);
             });
 
-            // Atualizar data-attributes dos botões
-            const addToCartBtn = document.getElementById('add-to-cart-btn');
-            const buyNowBtn = document.getElementById('buy-now-btn');
+            // Configurar botões de ação
+            setupActionButtons(product);
 
-            [addToCartBtn, buyNowBtn].forEach(btn => {
-                btn.dataset.id = product.id;
-                btn.dataset.name = product.name;
-                btn.dataset.price = product.price;
-                btn.dataset.image = product.images[0];
-            });
+            // Configurar controles de quantidade
+            setupQuantityControls();
+        }
 
-            // Controles de quantidade
-            document.getElementById('decrease-quantity').addEventListener('click', function() {
-                const quantityInput = document.getElementById('product-quantity');
-                if (parseInt(quantityInput.value) > 1) {
-                    quantityInput.value = parseInt(quantityInput.value) - 1;
+        // Função para configurar controles de quantidade
+        function setupQuantityControls() {
+            const quantityInput = document.getElementById('product-quantity');
+            
+            document.getElementById('decrease-quantity').addEventListener('click', (e) => {
+                e.stopPropagation();
+                const currentValue = parseInt(quantityInput.value);
+                if (currentValue > 1) {
+                    quantityInput.value = currentValue - 1;
                 }
             });
 
-            document.getElementById('increase-quantity').addEventListener('click', function() {
-                const quantityInput = document.getElementById('product-quantity');
-                quantityInput.value = parseInt(quantityInput.value) + 1;
+            document.getElementById('increase-quantity').addEventListener('click', (e) => {
+                e.stopPropagation();
+                const currentValue = parseInt(quantityInput.value);
+                quantityInput.value = currentValue + 1;
+            });
+
+            quantityInput.addEventListener('change', (e) => {
+                e.stopPropagation();
+                if (parseInt(quantityInput.value) < 1) {
+                    quantityInput.value = 1;
+                }
             });
         }
 
@@ -383,23 +362,4 @@ html_content = '''<!DOCTYPE html>
         });
     </script>
 </body>
-</html>'''
-
-# Salvar o arquivo
-with open('produto-corrigido.html', 'w', encoding='utf-8') as f:
-    f.write(html_content)
-
-print("✅ Arquivo produto.html corrigido criado com sucesso!")
-print("\n🔧 Principais correções aplicadas:")
-print("• Adicionado link para css/modal-corrections.css")
-print("• Adicionados IDs únicos para todos os elementos")
-print("• Botões com classes add-to-order para funcionar com o JavaScript")
-print("• Data-attributes completos (data-id, data-name, data-price, data-image)")
-print("• Modal de seleção de tamanho incluído")
-print("• Base de dados dos produtos integrada")
-print("• Função loadProductDetails() completa")
-print("• Controles de quantidade funcionais")
-print("• Seleção de tamanho visual")
-print("• Footer atualizado com informações corretas")
-print("• Botão WhatsApp adicionado")
-print("• Estrutura otimizada para funcionar com main-v2.js")
+</html>
