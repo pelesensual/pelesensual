@@ -10,9 +10,12 @@ Este repositório contém o código do site de comércio eletrônico **Pele Sens
 
 ## Estrutura
 
-- `index.html` – página principal com destaques dos produtos.
-- `produto.html` – página de detalhes de produto.
-- `checkout.html` – fluxo de checkout.
+-`index.html` – página principal com destaques dos produtos.
+ 
+-`produto.html` – página de detalhes de produto.
+ 
+-`checkout.html` – fluxo de checkout.
+ 
 - Diretório `js/` – scripts JavaScript.
 - Diretório `css/` – estilos CSS.
 - Diretório `images/` – imagens utilizadas no site.
