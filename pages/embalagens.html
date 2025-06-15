@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/header-decoration.css">
+    <link rel="stylesheet" href="../css/cart.css">
     <link rel="stylesheet" href="../css/tabs.css">
     <link rel="stylesheet" href="../css/mode-toggle.css">
 </head>
@@ -294,9 +295,7 @@
             </div>
         </div>
     </footer>
-
-    <script src="../js/cart.js"></script>
-    <script src="../js/main.js"></script>
+<script src="../js/main.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Funcionalidade das abas
@@ -316,7 +315,6 @@
                     document.getElementById(tabId).classList.add('active');
                 });
             });
-            
             // Funcionalidade das miniaturas
             const thumbnails = document.querySelectorAll('.product-thumbnail');
             const mainImage = document.querySelector('.product-main-image');
@@ -388,6 +386,7 @@
     </script>
     <script src="../js/mode-toggle.js"></script>
     <script src="../js/whatsapp-button.js"></script>
+    <script src="../js/image-modal.js"></script>
     <script src="../js/pagseguro-integration.js"></script>
 </body>
 </html>
