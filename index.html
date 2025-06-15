@@ -59,7 +59,8 @@
 
     <!-- Container de Mensagens -->
     <div id="message-container"></div>
-<!-- Header -->
+
+    <!-- Header -->
     <header class="header-decoration">
         <div class="header-pattern"></div>
         <div class="container">
@@ -128,7 +129,7 @@
             <div class="banner-dot"></div>
         </div>
     </div>
-    <!-- Modal de Seleção de Tamanho -->
+<!-- Modal de Seleção de Tamanho -->
     <div id="size-modal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
@@ -164,22 +165,83 @@
             </div>
         </div>
     </div>
-<!-- Seção Promocional -->
+
+    <!-- Seção Promocional -->
     <section class="promotional-section">
         <div class="container promotional-container">
             <h2 class="promotional-title">Promoções Especiais</h2>
             <div class="promotional-cards">
-                <!-- Cards promocionais existentes -->
+                <!-- Cards promocionais serão adicionados aqui -->
             </div>
         </div>
     </section>
-
     <!-- Produtos Adulto -->
     <section id="produtos-adulto" class="products">
         <div class="container">
             <h2>Moda Íntima Adulto</h2>
             <div class="product-grid">
-                <!-- Calça Microfibra -->
+                <!-- Box Feminina -->
+                <div class="product-card" data-product-id="026">
+                    <div class="product-image-container">
+                        <img src="images/box_feminina/box_feminina_frente_1.png" alt="Box Feminina" class="product-image">
+                        <div class="zoom-icon">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h3>Box Feminina</h3>
+                        <p class="material">Tecido: Microfibra</p>
+                        <p class="sizes">Tamanhos: P, M, G, GG</p>
+                        <p class="price retail-price" data-price="7.00">R$ 7,00</p>
+                        <p class="price wholesale-price" data-price="6.00" style="display: none;">R$ 6,00</p>
+                        <p class="ref">REF: 026 * Cores Sortidas</p>
+                        <div class="actions">
+                            <button class="btn btn-sm add-to-cart" 
+                                data-id="026" 
+                                data-name="Box Feminina" 
+                                data-retail-price="7.00"
+                                data-wholesale-price="6.00"
+                                data-image="images/box_feminina/box_feminina_frente_1.png"
+                                data-sizes="P,M,G,GG"
+                                data-ref="026">
+                                Adicionar ao Carrinho
+                            </button>
+                            <a href="pages/produto.html?id=026" class="btn btn-sm">Ver Detalhes</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Calça Lateral Dupla -->
+                <div class="product-card" data-product-id="1020">
+                    <div class="product-image-container">
+                        <img src="images/calca_lateral_dupla_1020.png" alt="Calça Lateral Dupla" class="product-image">
+                        <div class="zoom-icon">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h3>Calça Lateral Dupla</h3>
+                        <p class="material">Tecido: Microfibra</p>
+                        <p class="sizes">Tamanhos: P, M, G, GG</p>
+                        <p class="price retail-price" data-price="6.50">R$ 6,50</p>
+                        <p class="price wholesale-price" data-price="5.50" style="display: none;">R$ 5,50</p>
+                        <p class="ref">REF: 1020</p>
+                        <div class="actions">
+                            <button class="btn btn-sm add-to-cart" 
+                                data-id="1020" 
+                                data-name="Calça Lateral Dupla" 
+                                data-retail-price="6.50"
+                                data-wholesale-price="5.50"
+                                data-image="images/calca_lateral_dupla_1020.png"
+                                data-sizes="P,M,G,GG"
+                                data-ref="1020">
+                                Adicionar ao Carrinho
+                            </button>
+                            <a href="pages/produto.html?id=1020" class="btn btn-sm">Ver Detalhes</a>
+                        </div>
+                    </div>
+                </div>
+<!-- Calça Microfibra -->
                 <div class="product-card" data-product-id="016">
                     <div class="product-image-container">
                         <img src="images/calca_microfibra_frente_1.png" alt="Calça Microfibra" class="product-image">
@@ -237,257 +299,6 @@
                                 Adicionar ao Carrinho
                             </button>
                             <a href="pages/produto.html?id=012" class="btn btn-sm">Ver Detalhes</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Pala Cotton -->
-                <div class="product-card" data-product-id="013">
-                    <div class="product-image-container">
-                        <img src="images/pala_cotton_frente_1.png" alt="Pala Cotton" class="product-image">
-                        <div class="zoom-icon">
-                            <i class="fas fa-search-plus"></i>
-                        </div>
-                    </div>
-                    <div class="content">
-                        <h3>Pala Cotton</h3>
-                        <p class="material">Tecido: Cotton (algodão) Amaciado - Fio 40</p>
-                        <p class="sizes">Tamanhos: P, M, G, GG</p>
-                        <p class="price retail-price" data-price="6.50">R$ 6,50</p>
-                        <p class="price wholesale-price" data-price="5.50" style="display: none;">R$ 5,50</p>
-                        <p class="ref">REF: 013</p>
-                        <div class="actions">
-                            <button class="btn btn-sm add-to-cart" 
-                                data-id="013" 
-                                data-name="Pala Cotton" 
-                                data-retail-price="6.50"
-                                data-wholesale-price="5.50"
-                                data-image="images/pala_cotton_frente_1.png"
-                                data-sizes="P,M,G,GG"
-                                data-ref="013">
-                                Adicionar ao Carrinho
-                            </button>
-                            <a href="pages/produto.html?id=013" class="btn btn-sm">Ver Detalhes</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Continue o mesmo padrão para os outros produtos -->
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Produtos Infantil -->
-    <section id="produtos-infantil" class="products">
-        <div class="container">
-            <h2>Moda Íntima Infantil</h2>
-            <div class="product-grid">
-                <!-- Infantil Trix -->
-                <div class="product-card" data-product-id="002">
-                    <div class="product-image-container">
-                        <img src="images/infantil_trix_frente_1.png" alt="Infantil Trix" class="product-image">
-                        <div class="zoom-icon">
-                            <i class="fas fa-search-plus"></i>
-                        </div>
-                    </div>
-                    <div class="content">
-                        <h3>Infantil Trix</h3>
-                        <p class="material">Tecido: Modal Poá</p>
-                        <p class="sizes">Tamanhos: P, M, G, GG</p>
-                        <p class="price retail-price" data-price="4.20">R$ 4,20</p>
-                        <p class="price wholesale-price" data-price="3.20" style="display: none;">R$ 3,20</p>
-                        <p class="ref">REF: 002</p>
-                        <div class="actions">
-                            <button class="btn btn-sm add-to-cart" 
-                                data-id="002" 
-                                data-name="Infantil Trix" 
-                                data-retail-price="4.20"
-                                data-wholesale-price="3.20"
-                                data-image="images/infantil_trix_frente_1.png"
-                                data-sizes="P,M,G,GG"
-                                data-ref="002">
-                                Adicionar ao Carrinho
-                            </button>
-                            <a href="pages/produto.html?id=002" class="btn btn-sm">Ver Detalhes</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-<!-- Embalagens -->
-    <section id="embalagens" class="products">
-        <div class="container">
-            <h2>Embalagens e Kits</h2>
-            <div class="product-grid">
-                <!-- Caixas e Embalagens -->
-                <div class="product-card" data-product-id="embalagem">
-                    <div class="product-image-container">
-                        <img src="images/embalagens/caixa_embalagem_principal.png" alt="Caixas e Embalagens" class="product-image">
-                        <div class="zoom-icon">
-                            <i class="fas fa-search-plus"></i>
-                        </div>
-                    </div>
-                    <div class="content">
-                        <h3>Caixas e Embalagens</h3>
-                        <p class="material">Opções: Caixa de Presente e Embalagem Transparente</p>
-                        <p class="sizes">Capacidade: Até 5-6 peças</p>
-                        <p class="price retail-price" data-price="5.00">R$ 5,00</p>
-                        <p class="price wholesale-price" data-price="4.00" style="display: none;">R$ 4,00</p>
-                        <p class="ref">Design exclusivo Pele Sensual</p>
-                        <div class="actions">
-                            <button class="btn btn-sm add-to-cart" 
-                                data-id="embalagem" 
-                                data-name="Caixas e Embalagens" 
-                                data-retail-price="5.00"
-                                data-wholesale-price="4.00"
-                                data-image="images/embalagens/caixa_embalagem_principal.png"
-                                data-sizes="Único"
-                                data-ref="EMB001">
-                                Adicionar ao Carrinho
-                            </button>
-                            <a href="pages/embalagens.html" class="btn btn-sm">Ver Detalhes</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sobre Nós -->
-    <section id="sobre" class="hero">
-        <div class="container">
-            <h2>Sobre a Pele Sensual</h2>
-            <p>A Pele Sensual é uma marca de moda íntima que prioriza o conforto, a leveza e a qualidade em todas as suas peças. Trabalhamos com tecidos de alta qualidade como Microfibra, Modal e Cotton, oferecendo uma variedade de modelos para atender a todos os gostos e necessidades.</p>
-            <p>Somos uma fábrica que atua no mercado há mais de 10 anos, com experiência e compromisso com a satisfação de nossos clientes. Nossas peças são produzidas com cuidado e atenção aos detalhes, garantindo durabilidade e conforto.</p>
-        </div>
-    </section>
-
-    <!-- Contato -->
-    <section id="contato" class="hero">
-        <div class="container">
-            <h2>Entre em Contato</h2>
-            <div class="contact-info">
-                <p><i class="fas fa-phone"></i> (85) 99943-6548</p>
-                <p><i class="fas fa-envelope"></i> pelesensualmodaintima@gmail.com</p>
-                <p><i class="fab fa-instagram"></i> <a href="https://www.instagram.com/pelesensual?igsh=bXU3a2Z6NmVwbzhz" target="_blank">@pelesensual</a></p>
-                <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/5585999436548" target="_blank">WhatsApp</a></p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Botão WhatsApp -->
-    <div class="whatsapp-button">
-        <a href="https://wa.me/5585999436548" target="_blank">
-            <i class="fab fa-whatsapp"></i>
-        </a>
-    </div>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Pele Sensual</h3>
-                    <p>Moda íntima com conforto, leveza e qualidade.</p>
-                    <p><i class="fas fa-phone"></i> (85) 99943-6548</p>
-                    <p><i class="fas fa-envelope"></i> pelesensualmodaintima@gmail.com</p>
-                    <div class="social-links">
-                        <a href="https://www.instagram.com/pelesensual?igsh=bXU3a2Z6NmVwbzhz" target="_blank"><i class="fab fa-instagram"></i></a>
-                        <a href="https://wa.me/5585999436548" target="_blank"><i class="fab fa-whatsapp"></i></a>
-                    </div>
-                </div>
-                <div class="footer-section">
-                    <h3>Categorias</h3>
-                    <ul>
-                        <li><a href="#produtos-adulto">Moda Íntima Adulto</a></li>
-                        <li><a href="#produtos-infantil">Moda Íntima Infantil</a></li>
-                        <li><a href="#embalagens">Embalagens e Kits</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Informações</h3>
-                    <ul>
-                        <li><a href="#sobre">Sobre Nós</a></li>
-                        <li><a href="#contato">Contato</a></li>
-                        <li><a href="#">Política de Privacidade</a></li>
-                        <li><a href="#">Termos e Condições</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="copyright">
-                &copy; 2025 Pele Sensual Moda Íntima. Todos os direitos reservados.
-            </div>
-        </div>
-    </footer>
-
-    <!-- Scripts -->
-    <script src="js/cart.js"></script>
-    <script src="js/banner.js"></script>
-    <script src="js/image-zoom.js"></script>
-    <script src="js/mode-toggle.js"></script>
-    <script src="js/whatsapp-button.js"></script>
-</body>
-</html>
-<!-- Tanga Lari -->
-                <div class="product-card" data-product-id="014">
-                    <div class="product-image-container">
-                        <img src="images/tanga_lari_frente_1.png" alt="Tanga Lari" class="product-image">
-                        <div class="zoom-icon">
-                            <i class="fas fa-search-plus"></i>
-                        </div>
-                    </div>
-                    <div class="content">
-                        <h3>Tanga Lari</h3>
-                        <p class="material">Tecido: Cotton</p>
-                        <p class="sizes">Tamanhos: M, G, GG</p>
-                        <p class="price retail-price" data-price="6.00">R$ 6,00</p>
-                        <p class="price wholesale-price" data-price="5.00" style="display: none;">R$ 5,00</p>
-                        <p class="ref">REF: 014</p>
-                        <div class="actions">
-                            <button class="btn btn-sm add-to-cart" 
-                                data-id="014" 
-                                data-name="Tanga Lari" 
-                                data-retail-price="6.00"
-                                data-wholesale-price="5.00"
-                                data-image="images/tanga_lari_frente_1.png"
-                                data-sizes="M,G,GG"
-                                data-ref="014">
-                                Adicionar ao Carrinho
-                            </button>
-                            <a href="pages/produto.html?id=014" class="btn btn-sm">Ver Detalhes</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Fio Pala Dupla -->
-                <div class="product-card" data-product-id="050">
-                    <div class="product-image-container">
-                        <img src="images/fio_pala_dupla_050.png" alt="Fio Pala Dupla" class="product-image">
-                        <div class="zoom-icon">
-                            <i class="fas fa-search-plus"></i>
-                        </div>
-                    </div>
-                    <div class="content">
-                        <h3>Fio Pala Dupla</h3>
-                        <p class="material">Tecido: Microfibra</p>
-                        <p class="sizes">Tamanhos: P, M, G, GG</p>
-                        <p class="price retail-price" data-price="7.00">R$ 7,00</p>
-                        <p class="price wholesale-price" data-price="6.00" style="display: none;">R$ 6,00</p>
-                        <p class="ref">REF: 050</p>
-                        <div class="actions">
-                            <button class="btn btn-sm add-to-cart" 
-                                data-id="050" 
-                                data-name="Fio Pala Dupla" 
-                                data-retail-price="7.00"
-                                data-wholesale-price="6.00"
-                                data-image="images/fio_pala_dupla_050.png"
-                                data-sizes="P,M,G,GG"
-                                data-ref="050">
-                                Adicionar ao Carrinho
-                            </button>
-                            <a href="pages/produto.html?id=050" class="btn btn-sm">Ver Detalhes</a>
                         </div>
                     </div>
                 </div>
@@ -554,94 +365,206 @@
                     </div>
                 </div>
 
-                <!-- Calça Lateral Dupla -->
-                <div class="product-card" data-product-id="1020">
+                <!-- Fio Pala Dupla -->
+                <div class="product-card" data-product-id="050">
                     <div class="product-image-container">
-                        <img src="images/calca_lateral_dupla_1020.png" alt="Calça Lateral Dupla" class="product-image">
+                        <img src="images/fio_pala_dupla_050.png" alt="Fio Pala Dupla" class="product-image">
                         <div class="zoom-icon">
                             <i class="fas fa-search-plus"></i>
                         </div>
                     </div>
                     <div class="content">
-                        <h3>Calça Lateral Dupla</h3>
-                        <p class="material">Tecido: Microfibra</p>
-                        <p class="sizes">Tamanhos: P, M, G, GG</p>
-                        <p class="price retail-price" data-price="6.50">R$ 6,50</p>
-                        <p class="price wholesale-price" data-price="5.50" style="display: none;">R$ 5,50</p>
-                        <p class="ref">REF: 1020</p>
-                        <div class="actions">
-                            <button class="btn btn-sm add-to-cart" 
-                                data-id="1020" 
-                                data-name="Calça Lateral Dupla" 
-                                data-retail-price="6.50"
-                                data-wholesale-price="5.50"
-                                data-image="images/calca_lateral_dupla_1020.png"
-                                data-sizes="P,M,G,GG"
-                                data-ref="1020">
-                                Adicionar ao Carrinho
-                            </button>
-                            <a href="pages/produto.html?id=1020" class="btn btn-sm">Ver Detalhes</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Box Feminina -->
-                <div class="product-card" data-product-id="026">
-                    <div class="product-image-container">
-                        <img src="images/box_feminina/box_feminina_frente_1.png" alt="Box Feminina" class="product-image">
-                        <div class="zoom-icon">
-                            <i class="fas fa-search-plus"></i>
-                        </div>
-                    </div>
-                    <div class="content">
-                        <h3>Box Feminina</h3>
+                        <h3>Fio Pala Dupla</h3>
                         <p class="material">Tecido: Microfibra</p>
                         <p class="sizes">Tamanhos: P, M, G, GG</p>
                         <p class="price retail-price" data-price="7.00">R$ 7,00</p>
                         <p class="price wholesale-price" data-price="6.00" style="display: none;">R$ 6,00</p>
-                        <p class="ref">REF: 026 * Cores Sortidas</p>
+                        <p class="ref">REF: 050</p>
                         <div class="actions">
                             <button class="btn btn-sm add-to-cart" 
-                                data-id="026" 
-                                data-name="Box Feminina" 
+                                data-id="050" 
+                                data-name="Fio Pala Dupla" 
                                 data-retail-price="7.00"
                                 data-wholesale-price="6.00"
-                                data-image="images/box_feminina/box_feminina_frente_1.png"
+                                data-image="images/fio_pala_dupla_050.png"
                                 data-sizes="P,M,G,GG"
-                                data-ref="026">
+                                data-ref="050">
                                 Adicionar ao Carrinho
                             </button>
-                            <a href="pages/produto.html?id=026" class="btn btn-sm">Ver Detalhes</a>
+                            <a href="pages/produto.html?id=050" class="btn btn-sm">Ver Detalhes</a>
                         </div>
                     </div>
                 </div>
-<!-- Box Feminina Infantil -->
-<div class="product-card" data-product-id="026-infantil">
-    <div class="product-image-container">
-        <img src="images/box_feminina/box_feminina_infantil_1.png" alt="Box Feminina Infantil" class="product-image">
-        <div class="zoom-icon">
-            <i class="fas fa-search-plus"></i>
+<!-- Pala Cotton -->
+                <div class="product-card" data-product-id="013">
+                    <div class="product-image-container">
+                        <img src="images/pala_cotton_frente_1.png" alt="Pala Cotton" class="product-image">
+                        <div class="zoom-icon">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h3>Pala Cotton</h3>
+                        <p class="material">Tecido: Cotton (algodão) Amaciado - Fio 40</p>
+                        <p class="sizes">Tamanhos: P, M, G, GG</p>
+                        <p class="price retail-price" data-price="6.50">R$ 6,50</p>
+                        <p class="price wholesale-price" data-price="5.50" style="display: none;">R$ 5,50</p>
+                        <p class="ref">REF: 013</p>
+                        <div class="actions">
+                            <button class="btn btn-sm add-to-cart" 
+                                data-id="013" 
+                                data-name="Pala Cotton" 
+                                data-retail-price="6.50"
+                                data-wholesale-price="5.50"
+                                data-image="images/pala_cotton_frente_1.png"
+                                data-sizes="P,M,G,GG"
+                                data-ref="013">
+                                Adicionar ao Carrinho
+                            </button>
+                            <a href="pages/produto.html?id=013" class="btn btn-sm">Ver Detalhes</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tanga Lari -->
+                <div class="product-card" data-product-id="014">
+                    <div class="product-image-container">
+                        <img src="images/tanga_lari_frente_1.png" alt="Tanga Lari" class="product-image">
+                        <div class="zoom-icon">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h3>Tanga Lari</h3>
+                        <p class="material">Tecido: Cotton</p>
+                        <p class="sizes">Tamanhos: M, G, GG</p>
+                        <p class="price retail-price" data-price="6.00">R$ 6,00</p>
+                        <p class="price wholesale-price" data-price="5.00" style="display: none;">R$ 5,00</p>
+                        <p class="ref">REF: 014</p>
+                        <div class="actions">
+                            <button class="btn btn-sm add-to-cart" 
+                                data-id="014" 
+                                data-name="Tanga Lari" 
+                                data-retail-price="6.00"
+                                data-wholesale-price="5.00"
+                                data-image="images/tanga_lari_frente_1.png"
+                                data-sizes="M,G,GG"
+                                data-ref="014">
+                                Adicionar ao Carrinho
+                            </button>
+                            <a href="pages/produto.html?id=014" class="btn btn-sm">Ver Detalhes</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="content">
-        <h3>Box Feminina Infantil</h3>
-        <p class="material">Tecido: Microfibra</p>
-        <p class="sizes">Tamanhos: P, M, G, GG</p>
-        <p class="price retail-price" data-price="7.00">R$ 7,00</p>
-        <p class="price wholesale-price" data-price="6.00" style="display: none;">R$ 6,00</p>
-        <p class="ref">REF: 026-infantil * Cores Sortidas</p>
-        <div class="actions">
-            <button class="btn btn-sm add-to-cart" 
-                data-id="026-infantil" 
-                data-name="Box Feminina Infantil" 
-                data-retail-price="7.00"
-                data-wholesale-price="6.00"
-                data-image="images/box_feminina/box_feminina_infantil_1.png"
-                data-sizes="P,M,G,GG"
-                data-ref="026-infantil">
-                Adicionar ao Carrinho
-            </button>
-            <a href="pages/produto.html?id=026-infantil" class="btn btn-sm">Ver Detalhes</a>
+    </section>
+
+    <!-- Produtos Infantil -->
+    <section id="produtos-infantil" class="products">
+        <div class="container">
+            <h2>Moda Íntima Infantil</h2>
+            <div class="product-grid">
+                <!-- Box Feminina Infantil -->
+                <div class="product-card" data-product-id="026-infantil">
+                    <div class="product-image-container">
+                        <img src="images/box_feminina/box_feminina_infantil_1.png" alt="Box Feminina Infantil" class="product-image">
+                        <div class="zoom-icon">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h3>Box Feminina Infantil</h3>
+                        <p class="material">Tecido: Microfibra</p>
+                        <p class="sizes">Tamanhos: P, M, G, GG</p>
+                        <p class="price retail-price" data-price="7.00">R$ 7,00</p>
+                        <p class="price wholesale-price" data-price="6.00" style="display: none;">R$ 6,00</p>
+                        <p class="ref">REF: 026-infantil * Cores Sortidas</p>
+                        <div class="actions">
+                            <button class="btn btn-sm add-to-cart" 
+                                data-id="026-infantil" 
+                                data-name="Box Feminina Infantil" 
+                                data-retail-price="7.00"
+                                data-wholesale-price="6.00"
+                                data-image="images/box_feminina/box_feminina_infantil_1.png"
+                                data-sizes="P,M,G,GG"
+                                data-ref="026-infantil">
+                                Adicionar ao Carrinho
+                            </button>
+                            <a href="pages/produto.html?id=026-infantil" class="btn btn-sm">Ver Detalhes</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Infantil Trix -->
+                <div class="product-card" data-product-id="002">
+                    <div class="product-image-container">
+                        <img src="images/infantil_trix_frente_1.png" alt="Infantil Trix" class="product-image">
+                        <div class="zoom-icon">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h3>Infantil Trix</h3>
+                        <p class="material">Tecido: Modal Poá</p>
+                        <p class="sizes">Tamanhos: P, M, G, GG</p>
+                        <p class="price retail-price" data-price="4.20">R$ 4,20</p>
+                        <p class="price wholesale-price" data-price="3.20" style="display: none;">R$ 3,20</p>
+                        <p class="ref">REF: 002</p>
+                        <div class="actions">
+                            <button class="btn btn-sm add-to-cart" 
+                                data-id="002" 
+                                data-name="Infantil Trix" 
+                                data-retail-price="4.20"
+                                data-wholesale-price="3.20"
+                                data-image="images/infantil_trix_frente_1.png"
+                                data-sizes="P,M,G,GG"
+                                data-ref="002">
+                                Adicionar ao Carrinho
+                            </button>
+                            <a href="pages/produto.html?id=002" class="btn btn-sm">Ver Detalhes</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
+    </section>
+
+    <!-- Embalagens -->
+    <section id="embalagens" class="products">
+        <div class="container">
+            <h2>Embalagens e Kits</h2>
+            <div class="product-grid">
+                <!-- Caixas e Embalagens -->
+                <div class="product-card" data-product-id="embalagem">
+                    <div class="product-image-container">
+                        <img src="images/embalagens/caixa_embalagem_principal.png" alt="Caixas e Embalagens" class="product-image">
+                        <div class="zoom-icon">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h3>Caixas e Embalagens</h3>
+                        <p class="material">Opções: Caixa de Presente e Embalagem Transparente</p>
+                        <p class="sizes">Capacidade: Até 5-6 peças</p>
+                        <p class="price retail-price" data-price="5.00">R$ 5,00</p>
+                        <p class="price wholesale-price" data-price="4.00" style="display: none;">R$ 4,00</p>
+                        <p class="ref">Design exclusivo Pele Sensual</p>
+                        <div class="actions">
+                            <button class="btn btn-sm add-to-cart" 
+                                data-id="embalagem" 
+                                data-name="Caixas e Embalagens" 
+                                data-retail-price="5.00"
+                                data-wholesale-price="4.00"
+                                data-image="images/embalagens/caixa_embalagem_principal.png"
+                                data-sizes="Único"
+                                data-ref="EMB001">
+                                Adicionar ao Carrinho
+                            </button>
+                            <a href="pages/embalagens.html" class="btn btn-sm">Ver Detalhes</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
