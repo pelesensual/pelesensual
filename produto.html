@@ -174,14 +174,21 @@
         </div>
     </footer>
 <!-- Scripts -->
-    <script src="../js/cart.js"></script>
-    <script src="../js/image-zoom.js"></script>
-    <script src="../js/main-v2.js"></script>
-    <script src="../js/mode-toggle.js"></script>
+<!-- 1. Primeiro o cart.js pois outros dependem dele -->
+<script src="/js/cart.js"></script>
 
-    <!-- Script para carregar dados do produto -->
-    <script>
-        // Base de dados dos produtos
+<!-- 2. Mode toggle que depende do cart -->
+<script src="/js/mode-toggle.js"></script>
+
+<!-- 3. Image zoom que é independente -->
+<script src="/js/image-zoom.js"></script>
+
+<!-- 4. Main por último pois pode depender dos outros -->
+<script src="/js/main-v2.js"></script>
+
+<!-- 5. Script para carregar dados do produto -->
+<script>
+    // Base de dados dos produtos
         const productsData = {
             '016': {
                 id: '016',
